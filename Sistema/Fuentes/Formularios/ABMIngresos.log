@@ -1,0 +1,12 @@
+Línea 388: la clase MskFecha.fecha del control mFechaD no era una clase de control cargada.
+Línea 407: la clase MskFecha.fecha del control mFechaH no era una clase de control cargada.
+Línea 499: la clase MskFecha.fecha del control txtcing_fecha no era una clase de control cargada.
+Línea 394: el nombre de la propiedad _ExtentX de mFechaD no es válido.
+Línea 395: el nombre de la propiedad _ExtentY de mFechaD no es válido.
+Línea 396: el nombre de la propiedad Text de mFechaD no es válido.
+Línea 413: el nombre de la propiedad _ExtentX de mFechaH no es válido.
+Línea 414: el nombre de la propiedad _ExtentY de mFechaH no es válido.
+Línea 415: el nombre de la propiedad Text de mFechaH no es válido.
+Línea 505: el nombre de la propiedad _ExtentX de txtcing_fecha no es válido.
+Línea 506: el nombre de la propiedad _ExtentY de txtcing_fecha no es válido.
+Línea 507: el nombre de la propiedad Text de txtcing_fecha no es válido.

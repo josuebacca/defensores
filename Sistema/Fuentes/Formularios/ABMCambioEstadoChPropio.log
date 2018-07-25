@@ -1,0 +1,12 @@
+Línea 142: la clase MskFecha.fecha del control TxtCheFecEmi no era una clase de control cargada.
+Línea 161: la clase MskFecha.fecha del control TxtCheFecVto no era una clase de control cargada.
+Línea 180: la clase MskFecha.fecha del control TxtCesFecha no era una clase de control cargada.
+Línea 148: el nombre de la propiedad _ExtentX de TxtCheFecEmi no es válido.
+Línea 149: el nombre de la propiedad _ExtentY de TxtCheFecEmi no es válido.
+Línea 150: el nombre de la propiedad Text de TxtCheFecEmi no es válido.
+Línea 167: el nombre de la propiedad _ExtentX de TxtCheFecVto no es válido.
+Línea 168: el nombre de la propiedad _ExtentY de TxtCheFecVto no es válido.
+Línea 169: el nombre de la propiedad Text de TxtCheFecVto no es válido.
+Línea 186: el nombre de la propiedad _ExtentX de TxtCesFecha no es válido.
+Línea 187: el nombre de la propiedad _ExtentY de TxtCesFecha no es válido.
+Línea 188: el nombre de la propiedad Text de TxtCesFecha no es válido.

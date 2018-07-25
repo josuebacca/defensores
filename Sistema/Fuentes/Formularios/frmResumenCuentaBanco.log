@@ -1,0 +1,12 @@
+Línea 138: la clase MskFecha.fecha del control Fecha no era una clase de control cargada.
+Línea 201: la clase MskFecha.fecha del control FechaDesde no era una clase de control cargada.
+Línea 220: la clase MskFecha.fecha del control FechaHasta no era una clase de control cargada.
+Línea 144: el nombre de la propiedad _ExtentX de Fecha no es válido.
+Línea 145: el nombre de la propiedad _ExtentY de Fecha no es válido.
+Línea 146: el nombre de la propiedad Text de Fecha no es válido.
+Línea 207: el nombre de la propiedad _ExtentX de FechaDesde no es válido.
+Línea 208: el nombre de la propiedad _ExtentY de FechaDesde no es válido.
+Línea 209: el nombre de la propiedad Text de FechaDesde no es válido.
+Línea 226: el nombre de la propiedad _ExtentX de FechaHasta no es válido.
+Línea 227: el nombre de la propiedad _ExtentY de FechaHasta no es válido.
+Línea 228: el nombre de la propiedad Text de FechaHasta no es válido.

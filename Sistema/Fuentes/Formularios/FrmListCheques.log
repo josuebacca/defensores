@@ -1,0 +1,36 @@
+Línea 155: la clase MskFecha.fecha del control TxtFecVtoD no era una clase de control cargada.
+Línea 174: la clase MskFecha.fecha del control TxtFecVtoH no era una clase de control cargada.
+Línea 193: la clase MskFecha.fecha del control TxtFecIngresoD no era una clase de control cargada.
+Línea 212: la clase MskFecha.fecha del control TxtFecIngresoH no era una clase de control cargada.
+Línea 231: la clase MskFecha.fecha del control Fecha1 no era una clase de control cargada.
+Línea 250: la clase MskFecha.fecha del control Fecha2 no era una clase de control cargada.
+Línea 269: la clase MskFecha.fecha del control Fecha3 no era una clase de control cargada.
+Línea 288: la clase MskFecha.fecha del control FechaDesde no era una clase de control cargada.
+Línea 307: la clase MskFecha.fecha del control FechaHasta no era una clase de control cargada.
+Línea 161: el nombre de la propiedad _ExtentX de TxtFecVtoD no es válido.
+Línea 162: el nombre de la propiedad _ExtentY de TxtFecVtoD no es válido.
+Línea 163: el nombre de la propiedad Text de TxtFecVtoD no es válido.
+Línea 180: el nombre de la propiedad _ExtentX de TxtFecVtoH no es válido.
+Línea 181: el nombre de la propiedad _ExtentY de TxtFecVtoH no es válido.
+Línea 182: el nombre de la propiedad Text de TxtFecVtoH no es válido.
+Línea 199: el nombre de la propiedad _ExtentX de TxtFecIngresoD no es válido.
+Línea 200: el nombre de la propiedad _ExtentY de TxtFecIngresoD no es válido.
+Línea 201: el nombre de la propiedad Text de TxtFecIngresoD no es válido.
+Línea 218: el nombre de la propiedad _ExtentX de TxtFecIngresoH no es válido.
+Línea 219: el nombre de la propiedad _ExtentY de TxtFecIngresoH no es válido.
+Línea 220: el nombre de la propiedad Text de TxtFecIngresoH no es válido.
+Línea 237: el nombre de la propiedad _ExtentX de Fecha1 no es válido.
+Línea 238: el nombre de la propiedad _ExtentY de Fecha1 no es válido.
+Línea 239: el nombre de la propiedad Text de Fecha1 no es válido.
+Línea 256: el nombre de la propiedad _ExtentX de Fecha2 no es válido.
+Línea 257: el nombre de la propiedad _ExtentY de Fecha2 no es válido.
+Línea 258: el nombre de la propiedad Text de Fecha2 no es válido.
+Línea 275: el nombre de la propiedad _ExtentX de Fecha3 no es válido.
+Línea 276: el nombre de la propiedad _ExtentY de Fecha3 no es válido.
+Línea 277: el nombre de la propiedad Text de Fecha3 no es válido.
+Línea 294: el nombre de la propiedad _ExtentX de FechaDesde no es válido.
+Línea 295: el nombre de la propiedad _ExtentY de FechaDesde no es válido.
+Línea 296: el nombre de la propiedad Text de FechaDesde no es válido.
+Línea 313: el nombre de la propiedad _ExtentX de FechaHasta no es válido.
+Línea 314: el nombre de la propiedad _ExtentY de FechaHasta no es válido.
+Línea 315: el nombre de la propiedad Text de FechaHasta no es válido.
