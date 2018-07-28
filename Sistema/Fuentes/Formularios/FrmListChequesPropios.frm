@@ -135,7 +135,7 @@ Begin VB.Form FrmListChequesPropios
             _ExtentX        =   2143
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   52428801
+            Format          =   113049601
             CurrentDate     =   42925
          End
          Begin VB.ComboBox cboCtaBancaria 
@@ -180,7 +180,7 @@ Begin VB.Form FrmListChequesPropios
             _ExtentX        =   2143
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   52428801
+            Format          =   113049601
             CurrentDate     =   42925
          End
          Begin MSComCtl2.DTPicker TxtFecIngresoD 
@@ -192,7 +192,7 @@ Begin VB.Form FrmListChequesPropios
             _ExtentX        =   2143
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   52428801
+            Format          =   113049601
             CurrentDate     =   42925
          End
          Begin MSComCtl2.DTPicker TxtFecIngresoH 
@@ -204,7 +204,7 @@ Begin VB.Form FrmListChequesPropios
             _ExtentX        =   2143
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   52428801
+            Format          =   113049601
             CurrentDate     =   42925
          End
          Begin MSComCtl2.DTPicker Fecha1 
@@ -216,7 +216,7 @@ Begin VB.Form FrmListChequesPropios
             _ExtentX        =   2143
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   52428801
+            Format          =   113049601
             CurrentDate     =   42925
          End
          Begin MSComCtl2.DTPicker Fecha2 
@@ -228,7 +228,7 @@ Begin VB.Form FrmListChequesPropios
             _ExtentX        =   2143
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   52428801
+            Format          =   113049601
             CurrentDate     =   42925
          End
          Begin VB.Label Label9 
@@ -478,16 +478,16 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 
 Private Sub Limpio_Campos()
-   Me.TxtFecVtoD.Value = ""
-   Me.TxtFecVtoH.Value = ""
+   Me.TxtFecVtoD.Value = Date
+   Me.TxtFecVtoH.Value = Date
    Me.CboBanco.ListIndex = -1
    Me.cboCtaBancaria.ListIndex = -1
-   Me.TxtNroCheque.Text = ""
-   Me.TxtFecIngresoD.Value = ""
-   Me.TxtFecIngresoH.Value = ""
+   Me.TxtNroCheque.Text = Date
+   Me.TxtFecIngresoD.Value = Date
+   Me.TxtFecIngresoH.Value = Date
    Me.cboEstado.ListIndex = -1
-   Me.fecha1.Value = ""
-   Me.Fecha2.Value = ""
+   Me.fecha1.Value = Date
+   Me.Fecha2.Value = Date
 End Sub
 
 Private Sub CboBanco_LostFocus()

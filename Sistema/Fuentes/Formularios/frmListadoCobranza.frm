@@ -175,7 +175,7 @@ Begin VB.Form frmListadoCobranza
          _ExtentX        =   2143
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   52297729
+         Format          =   112918529
          CurrentDate     =   42925
       End
       Begin MSComCtl2.DTPicker FechaHasta 
@@ -187,7 +187,7 @@ Begin VB.Form frmListadoCobranza
          _ExtentX        =   2143
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   52297729
+         Format          =   112918529
          CurrentDate     =   42925
       End
       Begin VB.Label Label1 
@@ -298,7 +298,7 @@ Private Sub cmdListar_Click()
             sql = sql & " AND REC_FECHA<=" & XDQ(FechaHasta.Value)
             Rec.Open sql, DBConn, adOpenStatic, adLockOptimistic
             If Rec.EOF = False Then
-                mRecargo = Valido_Importe(Rec!MONTO)
+                mRecargo = Chk0(Valido_Importe(Rec!MONTO))
             End If
             Rec.Close
             

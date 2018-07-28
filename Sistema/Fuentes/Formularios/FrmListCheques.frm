@@ -160,7 +160,7 @@ Begin VB.Form FrmListCheques
             _ExtentX        =   2143
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   110755841
+            Format          =   42401793
             CurrentDate     =   42925
          End
          Begin MSComCtl2.DTPicker TxtFecVtoH 
@@ -172,7 +172,7 @@ Begin VB.Form FrmListCheques
             _ExtentX        =   2143
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   110755841
+            Format          =   42401793
             CurrentDate     =   42925
          End
          Begin MSComCtl2.DTPicker TxtFecIngresoH 
@@ -184,7 +184,7 @@ Begin VB.Form FrmListCheques
             _ExtentX        =   2143
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   110755841
+            Format          =   42401793
             CurrentDate     =   42925
          End
          Begin MSComCtl2.DTPicker TxtFecIngresoD 
@@ -196,7 +196,7 @@ Begin VB.Form FrmListCheques
             _ExtentX        =   2143
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   110755841
+            Format          =   42401793
             CurrentDate     =   42925
          End
          Begin MSComCtl2.DTPicker Fecha1 
@@ -208,7 +208,7 @@ Begin VB.Form FrmListCheques
             _ExtentX        =   2143
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   110755841
+            Format          =   42401793
             CurrentDate     =   42925
          End
          Begin MSComCtl2.DTPicker Fecha2 
@@ -220,7 +220,7 @@ Begin VB.Form FrmListCheques
             _ExtentX        =   2143
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   110755841
+            Format          =   42401793
             CurrentDate     =   42925
          End
          Begin MSComCtl2.DTPicker Fecha3 
@@ -232,7 +232,7 @@ Begin VB.Form FrmListCheques
             _ExtentX        =   2143
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   110755841
+            Format          =   42401793
             CurrentDate     =   42925
          End
          Begin MSComCtl2.DTPicker FechaDesde 
@@ -244,7 +244,7 @@ Begin VB.Form FrmListCheques
             _ExtentX        =   2143
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   110755841
+            Format          =   42401793
             CurrentDate     =   42925
          End
          Begin MSComCtl2.DTPicker FechaHasta 
@@ -256,7 +256,7 @@ Begin VB.Form FrmListCheques
             _ExtentX        =   2143
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   110755841
+            Format          =   42401793
             CurrentDate     =   42925
          End
          Begin VB.Label Label6 
@@ -559,18 +559,18 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 
 Private Sub Limpio_Campos()
-   Me.TxtFecVtoD.Value = ""
-   Me.TxtFecVtoH.Value = ""
+   Me.TxtFecVtoD.Value = Date
+   Me.TxtFecVtoH.Value = Date
    Me.CboBanco.ListIndex = -1
    Me.TxtNroCheque.Text = ""
-   Me.TxtFecIngresoD.Value = ""
-   Me.TxtFecIngresoH.Value = ""
-   Me.CboEstado.ListIndex = -1
-   Me.Fecha1.Value = ""
-   Me.Fecha2.Value = ""
-   Me.Fecha3.Value = ""
-   FechaDesde.Value = ""
-   FechaHasta.Value = ""
+   Me.TxtFecIngresoD.Value = Date
+   Me.TxtFecIngresoH.Value = Date
+   Me.cboEstado.ListIndex = -1
+   Me.fecha1.Value = Date
+   Me.Fecha2.Value = Date
+   Me.Fecha3.Value = Date
+   FechaDesde.Value = Date
+   FechaHasta.Value = Date
 End Sub
 
 Private Sub ListoChequesPorEntradaSalida()
@@ -827,7 +827,7 @@ Private Sub ListoChequesPorEntradaSalida()
 End Sub
 
 Private Sub CboEstado_LostFocus()
-    If Me.Option4.Value = True Then Fecha1.SetFocus
+    If Me.Option4.Value = True Then fecha1.SetFocus
     If Me.Option0.Value = True Then Me.CmdAgregar.SetFocus
 End Sub
 
@@ -859,9 +859,9 @@ Private Sub CmdAgregar_Click()
             Exit Sub
         End If
     ElseIf Option4.Value = True Then
-        If Fecha1.Value = "" Then
+        If fecha1.Value = "" Then
             MsgBox "Falta ingresar la fecha desde la cual quiere consultar", vbExclamation, TIT_MSGBOX
-            Fecha1.SetFocus
+            fecha1.SetFocus
             Exit Sub
         End If
     ElseIf Option5.Value = True Then
@@ -964,28 +964,28 @@ Private Sub CmdAgregar_Click()
    
    ElseIf Me.Option4.Value = True Then 'por Estado y Fecha de Cambio de estado
    
-       If Fecha1.Value = "" Or Fecha2.Value = "" Then
-          If Fecha1.Value = "" Then
-            Fecha1.Value = Format(Date, "dd/mm/yyyy")
+       If fecha1.Value = "" Or Fecha2.Value = "" Then
+          If fecha1.Value = "" Then
+            fecha1.Value = Format(Date, "dd/mm/yyyy")
           ElseIf Fecha2.Value = "" Then
             Fecha2.Value = Format(Date, "dd/mm/yyyy")
           End If
        End If
-       Call MuestroFechaCrystal(Me.Fecha1, Me.Fecha2, "Fecha de Cambio Estado  ")
+       Call MuestroFechaCrystal(Me.fecha1, Me.Fecha2, "Fecha de Cambio Estado  ")
        
-       sql = sql & " {ChequeEstadoVigente.CES_FECHA} >= DATE(" & Mid(Fecha1.Value, 7, 4) & "," & _
-                                                                    Mid(Fecha1.Value, 4, 2) & "," & _
-                                                                    Mid(Fecha1.Value, 1, 2) & ") and " & _
+       sql = sql & " {ChequeEstadoVigente.CES_FECHA} >= DATE(" & Mid(fecha1.Value, 7, 4) & "," & _
+                                                                    Mid(fecha1.Value, 4, 2) & "," & _
+                                                                    Mid(fecha1.Value, 1, 2) & ") and " & _
                    "{ChequeEstadoVigente.CES_FECHA} <= DATE(" & Mid(Fecha2.Value, 7, 4) & "," & _
                                                                     Mid(Fecha2.Value, 4, 2) & "," & _
                                                                     Mid(Fecha2.Value, 1, 2) & ")"
        'por Estado
-       If Me.CboEstado.List(Me.CboEstado.ListIndex) <> "(Todos)" Then
-           If Me.CboEstado.List(Me.CboEstado.ListIndex) = "RECHAZADOS TODOS" Then
+       If Me.cboEstado.List(Me.cboEstado.ListIndex) <> "(Todos)" Then
+           If Me.cboEstado.List(Me.cboEstado.ListIndex) = "RECHAZADOS TODOS" Then
               sql = sql & " AND {ChequeEstadoVigente.ECH_CODIGO} >= 8 " & _
                             " AND {ChequeEstadoVigente.ECH_CODIGO} <= 24 "
            Else
-              sql = sql & " AND {ChequeEstadoVigente.ECH_CODIGO} =  " & XN(Me.CboEstado.ItemData(Me.CboEstado.ListIndex))
+              sql = sql & " AND {ChequeEstadoVigente.ECH_CODIGO} =  " & XN(Me.cboEstado.ItemData(Me.cboEstado.ListIndex))
            End If
        End If
        wCondicion = wSentido & " {ChequeEstadoVigente.CHE_FECVTO}"
@@ -1150,7 +1150,7 @@ Private Sub Form_Load()
     Me.TxtFecVtoD.Enabled = False
     Me.TxtFecVtoH.Enabled = False
     Me.CboBanco.Enabled = False
-    Me.CboEstado.Enabled = False
+    Me.cboEstado.Enabled = False
     Me.TxtNroCheque.Enabled = False
     Me.TxtFecIngresoD.Enabled = False
     Me.TxtFecIngresoH.Enabled = False
@@ -1160,20 +1160,20 @@ Private Sub Form_Load()
     
     Set Rec = New ADODB.Recordset
     
-    CboEstado.Clear
-    CboEstado.AddItem "(Todos)"
+    cboEstado.Clear
+    cboEstado.AddItem "(Todos)"
     sql = "SELECT ECH_CODIGO, ECH_DESCRI FROM ESTADO_CHEQUE"
     Rec.Open sql, DBConn, adOpenStatic, adLockOptimistic
     If Rec.EOF = False Then
         Do While Not Rec.EOF
-            CboEstado.AddItem Trim(Rec!ECH_DESCRI)
-            CboEstado.ItemData(CboEstado.NewIndex) = Trim(Rec!ECH_CODIGO)
+            cboEstado.AddItem Trim(Rec!ECH_DESCRI)
+            cboEstado.ItemData(cboEstado.NewIndex) = Trim(Rec!ECH_CODIGO)
             Rec.MoveNext
         Loop
-        Me.CboEstado.ListIndex = -1
+        Me.cboEstado.ListIndex = -1
     End If
     Rec.Close
-    CboEstado.AddItem "RECHAZADOS TODOS"
+    cboEstado.AddItem "RECHAZADOS TODOS"
     Me.MousePointer = 1
     
     LBImpActual.Caption = "Impresora Actual: " & Printer.DeviceName
@@ -1199,8 +1199,8 @@ Private Sub Option0_Click()
     Me.TxtNroCheque.Enabled = False
     Me.TxtFecIngresoD.Enabled = False
     Me.TxtFecIngresoH.Enabled = False
-    Me.CboEstado.Enabled = False
-    Me.Fecha1.Enabled = False
+    Me.cboEstado.Enabled = False
+    Me.fecha1.Enabled = False
     Me.Fecha2.Enabled = False
     Me.Fecha3.Enabled = False
     Me.FechaDesde.Enabled = False
@@ -1231,13 +1231,13 @@ Private Sub Option1_Click()
     Limpio_Campos
     Me.TxtFecVtoD.Enabled = False
     Me.TxtFecVtoH.Enabled = False
-    Me.CboBanco.ListIndex = 0
+    Me.CboBanco.ListIndex = -1
     Me.CboBanco.Enabled = True
     Me.TxtNroCheque.Enabled = True
     Me.TxtFecIngresoD.Enabled = False
     Me.TxtFecIngresoH.Enabled = False
-    Me.CboEstado.Enabled = False
-    Me.Fecha1.Enabled = False
+    Me.cboEstado.Enabled = False
+    Me.fecha1.Enabled = False
     Me.Fecha2.Enabled = False
     Me.Fecha3.Enabled = False
     Me.FechaDesde.Enabled = False
@@ -1253,8 +1253,8 @@ Private Sub Option2_Click()
     Me.TxtNroCheque.Enabled = False
     Me.TxtFecIngresoD.Enabled = False
     Me.TxtFecIngresoH.Enabled = False
-    Me.CboEstado.Enabled = False
-    Me.Fecha1.Enabled = False
+    Me.cboEstado.Enabled = False
+    Me.fecha1.Enabled = False
     Me.Fecha2.Enabled = False
     Me.Fecha3.Enabled = True
     Me.FechaDesde.Enabled = False
@@ -1271,8 +1271,8 @@ Private Sub Option3_Click()
     Me.TxtNroCheque.Enabled = False
     Me.TxtFecIngresoD.Enabled = True
     Me.TxtFecIngresoH.Enabled = True
-    Me.CboEstado.Enabled = False
-    Me.Fecha1.Enabled = False
+    Me.cboEstado.Enabled = False
+    Me.fecha1.Enabled = False
     Me.Fecha2.Enabled = False
     Me.Fecha3.Enabled = False
     Me.FechaDesde.Enabled = False
@@ -1288,14 +1288,14 @@ Private Sub Option4_Click()
     Me.TxtNroCheque.Enabled = False
     Me.TxtFecIngresoD.Enabled = False
     Me.TxtFecIngresoH.Enabled = False
-    Me.CboEstado.ListIndex = 0
-    Me.CboEstado.Enabled = True
-    Me.Fecha1.Enabled = True
+    Me.cboEstado.ListIndex = 0
+    Me.cboEstado.Enabled = True
+    Me.fecha1.Enabled = True
     Me.Fecha2.Enabled = True
     Me.Fecha3.Enabled = False
     Me.FechaDesde.Enabled = False
     Me.FechaHasta.Enabled = False
-    Me.CboEstado.SetFocus
+    Me.cboEstado.SetFocus
 End Sub
 
 Private Sub Option5_Click()
@@ -1306,8 +1306,8 @@ Private Sub Option5_Click()
     Me.TxtNroCheque.Enabled = False
     Me.TxtFecIngresoD.Enabled = False
     Me.TxtFecIngresoH.Enabled = False
-    Me.CboEstado.Enabled = False
-    Me.Fecha1.Enabled = False
+    Me.cboEstado.Enabled = False
+    Me.fecha1.Enabled = False
     Me.Fecha2.Enabled = False
     Me.Fecha3.Enabled = True
     Me.FechaDesde.Enabled = False
@@ -1324,8 +1324,8 @@ Private Sub Option6_Click()
     Me.TxtNroCheque.Enabled = False
     Me.TxtFecIngresoD.Enabled = False
     Me.TxtFecIngresoH.Enabled = False
-    Me.CboEstado.Enabled = False
-    Me.Fecha1.Enabled = False
+    Me.cboEstado.Enabled = False
+    Me.fecha1.Enabled = False
     Me.Fecha2.Enabled = False
     Me.Fecha3.Enabled = False
     Me.FechaDesde.Enabled = True

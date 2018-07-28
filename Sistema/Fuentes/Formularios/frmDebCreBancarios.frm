@@ -67,6 +67,7 @@ Begin VB.Form frmDebCreBancarios
       _ExtentY        =   6985
       _Version        =   393216
       Tabs            =   2
+      Tab             =   1
       TabsPerRow      =   4
       TabHeight       =   520
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
@@ -80,15 +81,16 @@ Begin VB.Form frmDebCreBancarios
       EndProperty
       TabCaption(0)   =   "&Datos"
       TabPicture(0)   =   "frmDebCreBancarios.frx":0000
-      Tab(0).ControlEnabled=   -1  'True
+      Tab(0).ControlEnabled=   0   'False
       Tab(0).Control(0)=   "Frame3"
-      Tab(0).Control(0).Enabled=   0   'False
       Tab(0).ControlCount=   1
       TabCaption(1)   =   "B&uscar"
       TabPicture(1)   =   "frmDebCreBancarios.frx":001C
-      Tab(1).ControlEnabled=   0   'False
-      Tab(1).Control(0)=   "Frame1"
-      Tab(1).Control(1)=   "GrdModulos"
+      Tab(1).ControlEnabled=   -1  'True
+      Tab(1).Control(0)=   "GrdModulos"
+      Tab(1).Control(0).Enabled=   0   'False
+      Tab(1).Control(1)=   "Frame1"
+      Tab(1).Control(1).Enabled=   0   'False
       Tab(1).ControlCount=   2
       Begin VB.Frame Frame1 
          BeginProperty Font 
@@ -101,7 +103,7 @@ Begin VB.Form frmDebCreBancarios
             Strikethrough   =   0   'False
          EndProperty
          Height          =   1260
-         Left            =   -74805
+         Left            =   195
          TabIndex        =   18
          Top             =   360
          Width           =   6570
@@ -141,7 +143,7 @@ Begin VB.Form frmDebCreBancarios
             _ExtentX        =   2355
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   110428161
+            Format          =   112852993
             CurrentDate     =   43307
          End
          Begin MSComCtl2.DTPicker mFechaH 
@@ -153,7 +155,7 @@ Begin VB.Form frmDebCreBancarios
             _ExtentX        =   2355
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   110428161
+            Format          =   112852993
             CurrentDate     =   43307
          End
          Begin VB.Label Label5 
@@ -206,7 +208,7 @@ Begin VB.Form frmDebCreBancarios
             Strikethrough   =   0   'False
          EndProperty
          Height          =   3420
-         Left            =   135
+         Left            =   -74865
          TabIndex        =   16
          Top             =   420
          Width           =   6615
@@ -282,7 +284,7 @@ Begin VB.Form frmDebCreBancarios
             _ExtentX        =   2355
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   110428161
+            Format          =   112852993
             CurrentDate     =   43307
          End
          Begin VB.Label Label1 
@@ -376,7 +378,7 @@ Begin VB.Form frmDebCreBancarios
       End
       Begin MSFlexGridLib.MSFlexGrid GrdModulos 
          Height          =   2100
-         Left            =   -74820
+         Left            =   180
          TabIndex        =   14
          Top             =   1650
          Width           =   6600
@@ -441,7 +443,7 @@ Private Sub BuscoDatos()
             cboDebCre.ListIndex = 0
             cboDebCre_LostFocus
         End If
-        FechaGasto.Text = ChkNull(Rec!DCB_FECHA)
+        FechaGasto.Value = ChkNull(Rec!DCB_FECHA)
         Call BuscaCodigoProxItemData(CInt(Rec!TDCB_CODIGO), CboGasto)
         Call BuscaCodigoProxItemData(CInt(Rec!BAN_CODINT), CboBanco)
         CboBanco_LostFocus
@@ -596,7 +598,7 @@ Private Sub CmdGrabar_Click()
         TxtCodigo.SetFocus
         Exit Sub
     End If
-    If FechaGasto.Text = "" Then
+    If FechaGasto.Value = "" Then
         MsgBox "No ha ingresado la Fecha", vbExclamation, TIT_MSGBOX
         FechaGasto.SetFocus
         Exit Sub
@@ -624,7 +626,7 @@ Private Sub CmdGrabar_Click()
     
     If Rec.EOF = False Then
         sql = "UPDATE DEBCRE_BANCARIOS"
-        sql = sql & " SET DCB_FECHA = " & XDQ(FechaGasto.Text)
+        sql = sql & " SET DCB_FECHA = " & XDQ(FechaGasto.Value)
         sql = sql & " ,TDCB_CODIGO = " & XN(CboGasto.ItemData(CboGasto.ListIndex))
         sql = sql & " ,BAN_CODINT = " & XN(CboBanco.ItemData(CboBanco.ListIndex))
         sql = sql & " ,CTA_NROCTA = " & XS(cboCtaBancaria.List(cboCtaBancaria.ListIndex))
@@ -650,7 +652,7 @@ Private Sub CmdGrabar_Click()
         sql = sql & " CTA_NROCTA, DCB_IMPORTE, DCB_IMPUESTO,DCB_TIPO)"
         sql = sql & " VALUES ("
         sql = sql & XN(TxtCodigo.Text) & ","
-        sql = sql & XDQ(FechaGasto.Text) & ","
+        sql = sql & XDQ(FechaGasto.Value) & ","
         sql = sql & XN(CboGasto.ItemData(CboGasto.ListIndex)) & ","
         sql = sql & XN(CboBanco.ItemData(CboBanco.ListIndex)) & ","
         sql = sql & XS(cboCtaBancaria.List(cboCtaBancaria.ListIndex)) & ","
@@ -705,7 +707,7 @@ Private Sub CmdNuevo_Click()
     chkAplicoImpuesto.Value = Unchecked
     txtImporte.Text = ""
     lblEstado.Caption = ""
-    FechaGasto.Text = ""
+    FechaGasto.Value = Date
     GrdModulos.Rows = 1
     cboDebCre.ListIndex = 0
     TxtCodigo.SetFocus
@@ -892,8 +894,8 @@ Private Sub tabTB_Click(PreviousTab As Integer)
         GrdModulos.HighLight = flexHighlightNever
         cboGasto1.ListIndex = 0
         cboBanco1.ListIndex = 0
-        FechaD.Value = ""
-        FechaH.Value = ""
+        mFechaD.Value = ""
+        mFechaH.Value = ""
         If cboGasto1.Enabled Then cboGasto1.SetFocus
     Else
         If FechaGasto.Visible = True Then FechaGasto.SetFocus

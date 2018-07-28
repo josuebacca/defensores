@@ -34,7 +34,7 @@ Begin VB.Form FrmBoletaDeposito
       _ExtentX        =   2355
       _ExtentY        =   556
       _Version        =   393216
-      Format          =   74121217
+      Format          =   113049601
       CurrentDate     =   43307
    End
    Begin VB.CommandButton CmdEliminar 
@@ -1489,7 +1489,7 @@ Private Sub CboBancoBoleta_LostFocus()
             'End If
             Me.TxtEfvo = ""
             LblAnulada.Visible = False
-            cmdGrabar.Enabled = True
+            CmdGrabar.Enabled = True
         End If
         snp.Close
      End If
@@ -1500,7 +1500,7 @@ Private Sub CboCuentas_GotFocus()
     If Trim(CboBancoBoleta.Text) <> "" Then
         CboCuentas.Clear
         Call CargoCtaBancaria(CStr(CboBancoBoleta.ItemData(CboBancoBoleta.ListIndex)))
-        CboCuentas.ListIndex = 0
+        CboCuentas.ListIndex = -1
     End If
 End Sub
 
@@ -1592,7 +1592,7 @@ Private Sub CboCuentas_LostFocus()
             Me.TxtBoleta.Enabled = True
             Me.CboBancoBoleta.Enabled = True
             Me.CboCuentas.Enabled = True
-            Me.TxtBolFecha.Enabled = True
+            Me.Fecha.Enabled = True
             
             'If FormLlamado = "CtaCte" Then
             '    If UCase(Trim(Format(Date - 1, "ddd"))) <> "DOM" Then
@@ -1606,7 +1606,7 @@ Private Sub CboCuentas_LostFocus()
             
             Me.TxtEfvo = ""
             LblAnulada.Visible = False
-            cmdGrabar.Enabled = True
+            CmdGrabar.Enabled = True
             CboBancoBoleta.SetFocus
         End If
         snp.Close
@@ -1660,7 +1660,7 @@ Private Sub CmdAnular_Click()
     End If
 End Sub
 
-Private Sub CmdAnular_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub CmdAnular_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
    LblDetalle.Caption = "Al Anular la Boleta de Depósito los cheques vuelven a estar en CARTERA y el estado de la Boleta es 2 ANULADO"
 End Sub
 
@@ -1729,7 +1729,7 @@ CLAVOSE:
     MsgBox Err.Description, vbCritical, TIT_MSGBOX
 End Sub
 
-Private Sub CmdEliminar_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub CmdEliminar_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
     LblDetalle.Caption = " Al Eliminar la Boleta de Depósito los cheques vuelven a estar en CARTERA y la Boleta se puede volver a CARGAR"
 End Sub
 
@@ -1809,7 +1809,7 @@ ErrorTrans:
 End Sub
 
 
-Private Sub CmdGrabar_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub CmdGrabar_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
      LblDetalle.Caption = "Graba la Boleta de Depósito."
 End Sub
 
@@ -1834,7 +1834,7 @@ Private Sub cmdImprimir_Click()
  End If
 End Sub
 
-Private Sub CmdImprimir_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub CmdImprimir_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
     LblDetalle.Caption = "Imprime la Boleta de Depósito."
 End Sub
 
@@ -1842,7 +1842,7 @@ Private Sub CmdNuevo_Click()
   Me.TxtBoleta.Enabled = True
   Me.CboBancoBoleta.Enabled = True
   Me.CboCuentas.Enabled = True
-  Me.TxtBolFecha.Enabled = True
+  Me.Fecha.Enabled = True
   
   Me.TxtBoleta.Text = ""
   Me.CboBancoBoleta.ListIndex = 0
@@ -1856,7 +1856,7 @@ Private Sub CmdNuevo_Click()
 '        TxtBolFecha.Text = Format(Date - 3, "dd/mm/yyyy")
 '     End If
 '  ElseIf FormLlamado = "VAL" Then
-     TxtBolFecha.Text = Format(Date, "dd/mm/yyyy")
+     Fecha.Value = Format(Date, "dd/mm/yyyy")
 '  End If
     
   For A = 0 To 9
@@ -1873,11 +1873,11 @@ Private Sub CmdNuevo_Click()
   LblAnulada.Visible = False
 End Sub
 
-Private Sub CmdNuevo_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub CmdNuevo_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
     LblDetalle.Caption = "Nueva Boleta de Depósito."
 End Sub
 
-Private Sub CmdSalir_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub CmdSalir_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
     LblDetalle.Caption = "Sale del Formulario de la Boleta de Depósito."
 End Sub
 
@@ -1981,7 +1981,7 @@ Private Sub TxtBoleta_LostFocus()
             
                 Me.TxtEfvo = ""
                 LblAnulada.Visible = False
-                cmdGrabar.Enabled = True
+                CmdGrabar.Enabled = True
                 Fecha.SetFocus
          End If
          snp.Close
@@ -2026,7 +2026,7 @@ Private Sub TxtBoleta_KeyPress(KeyAscii As Integer)
 End Sub
 
 Private Sub TxtBolFecha_LostFocus()
-    If Me.TxtBolFecha.Text = "" Then Me.TxtBolFecha.Text = Format(Date, "dd/mm/yyyy")
+    If Me.Fecha.Value = Date Then Me.Fecha.Value = Format(Date, "dd/mm/yyyy")
 End Sub
 
 Private Sub TxtNumeroCh_LostFocus(Index As Integer)

@@ -162,7 +162,7 @@ Begin VB.Form frmIngresoGastosBancarios
             _ExtentX        =   2355
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   3932161
+            Format          =   113049601
             CurrentDate     =   43307
          End
          Begin MSComCtl2.DTPicker FechaH 
@@ -174,7 +174,7 @@ Begin VB.Form frmIngresoGastosBancarios
             _ExtentX        =   2355
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   3932161
+            Format          =   113049601
             CurrentDate     =   43307
          End
          Begin VB.Label Label5 
@@ -286,7 +286,7 @@ Begin VB.Form frmIngresoGastosBancarios
             _ExtentX        =   2355
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   3932161
+            Format          =   113049601
             CurrentDate     =   43307
          End
          Begin VB.Label Label29 
@@ -548,7 +548,7 @@ Private Sub CmdGrabar_Click()
         TxtCodigo.SetFocus
         Exit Sub
     End If
-    If FechaGasto.Text = "" Then
+    If FechaGasto.Value = Date Then
         MsgBox "No ha ingresado la Fecha del Gasto", vbExclamation, TIT_MSGBOX
         FechaGasto.SetFocus
         Exit Sub
@@ -575,7 +575,7 @@ Private Sub CmdGrabar_Click()
     
     If Rec.EOF = False Then 'MODIFICO UN GASTO
         sql = "UPDATE GASTOS_BANCARIOS"
-        sql = sql & " SET GBA_FECHA = " & XDQ(FechaGasto.Text)
+        sql = sql & " SET GBA_FECHA = " & XDQ(FechaGasto.Value)
         sql = sql & " ,TGB_CODIGO = " & XN(CboGasto.ItemData(CboGasto.ListIndex))
         sql = sql & " ,BAN_CODINT = " & XN(CboBanco.ItemData(CboBanco.ListIndex))
         sql = sql & " ,CTA_NROCTA = " & XS(cboCtaBancaria.List(cboCtaBancaria.ListIndex))
@@ -596,7 +596,7 @@ Private Sub CmdGrabar_Click()
         sql = sql & " CTA_NROCTA, GBA_IMPORTE, GBA_IMPUESTO)"
         sql = sql & " VALUES ("
         sql = sql & XN(TxtCodigo.Text) & ","
-        sql = sql & XDQ(FechaGasto.Text) & ","
+        sql = sql & XDQ(FechaGasto.Value) & ","
         sql = sql & XN(CboGasto.ItemData(CboGasto.ListIndex)) & ","
         sql = sql & XN(CboBanco.ItemData(CboBanco.ListIndex)) & ","
         sql = sql & XS(cboCtaBancaria.List(cboCtaBancaria.ListIndex)) & ","
@@ -632,7 +632,7 @@ Private Sub CmdNuevo_Click()
     chkAplicoImpuesto.Value = Unchecked
     txtImporte.Text = ""
     lblEstado.Caption = ""
-    FechaGasto.Text = ""
+    FechaGasto.Value = Date
     GrdModulos.Rows = 1
     TxtCodigo.SetFocus
 End Sub
@@ -787,8 +787,8 @@ Private Sub tabTB_Click(PreviousTab As Integer)
         GrdModulos.HighLight = flexHighlightNever
         cboGasto1.ListIndex = 0
         cboBanco1.ListIndex = 0
-        FechaD.Value = ""
-        FechaH.Value = ""
+        FechaD.Value = Date
+        FechaH.Value = Date
         If cboGasto1.Enabled Then cboGasto1.SetFocus
     Else
         If FechaGasto.Visible = True Then FechaGasto.SetFocus

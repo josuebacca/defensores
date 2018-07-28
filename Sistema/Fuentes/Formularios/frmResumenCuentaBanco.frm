@@ -144,7 +144,7 @@ Begin VB.Form frmResumenCuentaBanco
          _ExtentX        =   2143
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   52625409
+         Format          =   112918529
          CurrentDate     =   42925
       End
       Begin VB.Label lblPeriodo1 
@@ -200,7 +200,7 @@ Begin VB.Form frmResumenCuentaBanco
          _ExtentX        =   2143
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   52625409
+         Format          =   112918529
          CurrentDate     =   42925
       End
       Begin MSComCtl2.DTPicker FechaHasta 
@@ -212,7 +212,7 @@ Begin VB.Form frmResumenCuentaBanco
          _ExtentX        =   2143
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   52625409
+         Format          =   112918529
          CurrentDate     =   42925
       End
       Begin VB.Label lblPeriodoH 
@@ -428,7 +428,7 @@ Private Sub CboCuentas_GotFocus()
     If Trim(CboBancoBoleta.Text) <> "" Then
         CboCuentas.Clear
         Call CargoCtaBancaria(CStr(CboBancoBoleta.ItemData(CboBancoBoleta.ListIndex)))
-        CboCuentas.ListIndex = 0
+        CboCuentas.ListIndex = -1
     End If
 End Sub
 
@@ -1261,9 +1261,9 @@ End Sub
 
 Private Sub optLibroBanco_Click()
     If optLibroBanco.Value = True Then
-        Fecha.Value = ""
-        FechaDesde.Value = ""
-        FechaHasta.Value = ""
+        Fecha.Value = Date
+        FechaDesde.Value = Date
+        FechaHasta.Value = Date
         FrameCierre.Enabled = False
         FrameLibro.Enabled = True
     End If

@@ -110,7 +110,7 @@ Begin VB.MDIForm Menu
             Bevel           =   2
             Object.Width           =   1587
             MinWidth        =   1587
-            TextSave        =   "12:50"
+            TextSave        =   "12:21"
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel6 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
@@ -119,7 +119,7 @@ Begin VB.MDIForm Menu
             Bevel           =   2
             Object.Width           =   1940
             MinWidth        =   1940
-            TextSave        =   "27/07/2018"
+            TextSave        =   "28/07/2018"
             Object.Tag             =   ""
          EndProperty
       EndProperty
@@ -355,6 +355,7 @@ Begin VB.MDIForm Menu
       End
       Begin VB.Menu mnuFondosGestonBancaria 
          Caption         =   "Gestión &Bancaria"
+         Visible         =   0   'False
          Begin VB.Menu mnuABMCuentasBancarias 
             Caption         =   "Cuentas Bancarias"
          End
