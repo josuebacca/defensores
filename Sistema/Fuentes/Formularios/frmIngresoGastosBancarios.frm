@@ -1,7 +1,7 @@
 VERSION 5.00
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
 Object = "{5E9E78A0-531B-11CF-91F6-C2863C385E30}#1.0#0"; "MSFLXGRD.OCX"
-Object = "{5F09B5DF-6F4D-11D2-8355-4854E82A9183}#15.0#0"; "Fecha32.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Begin VB.Form frmIngresoGastosBancarios 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Ingreso de Gastos Bancarios"
@@ -20,7 +20,6 @@ Begin VB.Form frmIngresoGastosBancarios
    EndProperty
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
-   LockControls    =   -1  'True
    MaxButton       =   0   'False
    MDIChild        =   -1  'True
    MinButton       =   0   'False
@@ -30,7 +29,7 @@ Begin VB.Form frmIngresoGastosBancarios
       Caption         =   "&Cancelar"
       Height          =   375
       Left            =   4185
-      TabIndex        =   8
+      TabIndex        =   7
       Top             =   3615
       Width           =   915
    End
@@ -38,7 +37,7 @@ Begin VB.Form frmIngresoGastosBancarios
       Caption         =   "&Aceptar"
       Height          =   375
       Left            =   3255
-      TabIndex        =   7
+      TabIndex        =   6
       Top             =   3615
       Width           =   915
    End
@@ -46,7 +45,7 @@ Begin VB.Form frmIngresoGastosBancarios
       Caption         =   "&Salir"
       Height          =   375
       Left            =   6045
-      TabIndex        =   10
+      TabIndex        =   9
       Top             =   3615
       Width           =   915
    End
@@ -54,14 +53,14 @@ Begin VB.Form frmIngresoGastosBancarios
       Caption         =   "&Eliminar"
       Height          =   375
       Left            =   5115
-      TabIndex        =   9
+      TabIndex        =   8
       Top             =   3615
       Width           =   915
    End
    Begin TabDlg.SSTab TabTB 
       Height          =   3555
       Left            =   30
-      TabIndex        =   17
+      TabIndex        =   14
       Top             =   15
       Width           =   6930
       _ExtentX        =   12224
@@ -106,7 +105,7 @@ Begin VB.Form frmIngresoGastosBancarios
          EndProperty
          Height          =   1260
          Left            =   195
-         TabIndex        =   20
+         TabIndex        =   17
          Top             =   360
          Width           =   6570
          Begin VB.ComboBox cboBanco1 
@@ -122,7 +121,7 @@ Begin VB.Form frmIngresoGastosBancarios
             Height          =   315
             Left            =   1230
             Style           =   2  'Dropdown List
-            TabIndex        =   12
+            TabIndex        =   11
             Top             =   540
             Width           =   3915
          End
@@ -139,51 +138,51 @@ Begin VB.Form frmIngresoGastosBancarios
             Height          =   315
             Left            =   1230
             Style           =   2  'Dropdown List
-            TabIndex        =   11
+            TabIndex        =   10
             Top             =   195
             Width           =   3915
-         End
-         Begin FechaCtl.Fecha mFechaD 
-            Height          =   315
-            Left            =   1230
-            TabIndex        =   13
-            Top             =   900
-            Width           =   1155
-            _ExtentX        =   2037
-            _ExtentY        =   556
-            Separador       =   "/"
-            Text            =   ""
-            MensajeErrMin   =   "La fecha ingresada no alcanza el mínimo permitido"
          End
          Begin VB.CommandButton CmdBuscAprox 
             Caption         =   "Buscar"
             Height          =   330
             Left            =   5355
             MaskColor       =   &H00000000&
-            TabIndex        =   15
+            TabIndex        =   12
             ToolTipText     =   "Buscar"
             Top             =   825
             UseMaskColor    =   -1  'True
             Width           =   1110
          End
-         Begin FechaCtl.Fecha mFechaH 
+         Begin MSComCtl2.DTPicker FechaD 
             Height          =   315
-            Left            =   3990
-            TabIndex        =   14
-            Top             =   900
-            Width           =   1155
-            _ExtentX        =   2037
+            Left            =   1230
+            TabIndex        =   29
+            Top             =   840
+            Width           =   1335
+            _ExtentX        =   2355
             _ExtentY        =   556
-            Separador       =   "/"
-            Text            =   ""
-            MensajeErrMin   =   "La fecha ingresada no alcanza el mínimo permitido"
+            _Version        =   393216
+            Format          =   3932161
+            CurrentDate     =   43307
+         End
+         Begin MSComCtl2.DTPicker FechaH 
+            Height          =   315
+            Left            =   3720
+            TabIndex        =   30
+            Top             =   840
+            Width           =   1335
+            _ExtentX        =   2355
+            _ExtentY        =   556
+            _Version        =   393216
+            Format          =   3932161
+            CurrentDate     =   43307
          End
          Begin VB.Label Label5 
             AutoSize        =   -1  'True
             Caption         =   "Banco:"
             Height          =   195
             Left            =   165
-            TabIndex        =   30
+            TabIndex        =   27
             Top             =   600
             Width           =   495
          End
@@ -193,16 +192,16 @@ Begin VB.Form frmIngresoGastosBancarios
             Height          =   195
             Index           =   1
             Left            =   165
-            TabIndex        =   29
+            TabIndex        =   26
             Top             =   255
             Width           =   480
          End
          Begin VB.Label Label4 
             AutoSize        =   -1  'True
-            Caption         =   "Fecah Hasta:"
+            Caption         =   "Fecha Hasta:"
             Height          =   195
-            Left            =   2925
-            TabIndex        =   25
+            Left            =   2805
+            TabIndex        =   22
             Top             =   930
             Width           =   960
          End
@@ -211,7 +210,7 @@ Begin VB.Form frmIngresoGastosBancarios
             Caption         =   "Fecha Desde:"
             Height          =   195
             Left            =   165
-            TabIndex        =   24
+            TabIndex        =   21
             Top             =   945
             Width           =   990
          End
@@ -229,14 +228,14 @@ Begin VB.Form frmIngresoGastosBancarios
          EndProperty
          Height          =   2925
          Left            =   -74865
-         TabIndex        =   18
+         TabIndex        =   15
          Top             =   510
          Width           =   6615
          Begin VB.CheckBox chkAplicoImpuesto 
             Caption         =   "Aplicar impuesto transacciones financieras"
             Height          =   240
             Left            =   1260
-            TabIndex        =   6
+            TabIndex        =   5
             Top             =   2565
             Width           =   4125
          End
@@ -244,7 +243,7 @@ Begin VB.Form frmIngresoGastosBancarios
             Height          =   315
             Left            =   1260
             Style           =   2  'Dropdown List
-            TabIndex        =   3
+            TabIndex        =   2
             Top             =   1455
             Width           =   4395
          End
@@ -252,7 +251,7 @@ Begin VB.Form frmIngresoGastosBancarios
             Height          =   315
             Left            =   1260
             Style           =   2  'Dropdown List
-            TabIndex        =   2
+            TabIndex        =   1
             Top             =   1095
             Width           =   4395
          End
@@ -260,28 +259,16 @@ Begin VB.Form frmIngresoGastosBancarios
             Height          =   315
             Left            =   1260
             Style           =   2  'Dropdown List
-            TabIndex        =   4
+            TabIndex        =   3
             Top             =   1815
             Width           =   2100
          End
          Begin VB.TextBox txtImporte 
             Height          =   330
             Left            =   1260
-            TabIndex        =   5
+            TabIndex        =   4
             Top             =   2175
             Width           =   1125
-         End
-         Begin FechaCtl.Fecha FechaGasto 
-            Height          =   315
-            Left            =   1260
-            TabIndex        =   1
-            Top             =   765
-            Width           =   1170
-            _ExtentX        =   2064
-            _ExtentY        =   556
-            Separador       =   "/"
-            Text            =   ""
-            MensajeErrMin   =   "La fecha ingresada no alcanza el mínimo permitido"
          End
          Begin VB.TextBox TxtCodigo 
             Height          =   315
@@ -289,6 +276,18 @@ Begin VB.Form frmIngresoGastosBancarios
             TabIndex        =   0
             Top             =   390
             Width           =   1125
+         End
+         Begin MSComCtl2.DTPicker FechaGasto 
+            Height          =   315
+            Left            =   1260
+            TabIndex        =   31
+            Top             =   720
+            Width           =   1335
+            _ExtentX        =   2355
+            _ExtentY        =   556
+            _Version        =   393216
+            Format          =   3932161
+            CurrentDate     =   43307
          End
          Begin VB.Label Label29 
             AutoSize        =   -1  'True
@@ -304,7 +303,7 @@ Begin VB.Form frmIngresoGastosBancarios
             EndProperty
             Height          =   240
             Left            =   4275
-            TabIndex        =   31
+            TabIndex        =   28
             Top             =   15
             Width           =   1875
          End
@@ -313,7 +312,7 @@ Begin VB.Form frmIngresoGastosBancarios
             Caption         =   "Banco:"
             Height          =   195
             Left            =   210
-            TabIndex        =   28
+            TabIndex        =   25
             Top             =   1515
             Width           =   495
          End
@@ -323,7 +322,7 @@ Begin VB.Form frmIngresoGastosBancarios
             Height          =   195
             Index           =   0
             Left            =   210
-            TabIndex        =   27
+            TabIndex        =   24
             Top             =   1845
             Width           =   885
          End
@@ -334,7 +333,7 @@ Begin VB.Form frmIngresoGastosBancarios
             Height          =   195
             Index           =   4
             Left            =   210
-            TabIndex        =   23
+            TabIndex        =   20
             Top             =   2220
             Width           =   630
          End
@@ -344,7 +343,7 @@ Begin VB.Form frmIngresoGastosBancarios
             Caption         =   "Fecha:"
             Height          =   195
             Left            =   210
-            TabIndex        =   22
+            TabIndex        =   19
             Top             =   810
             Width           =   495
          End
@@ -354,7 +353,7 @@ Begin VB.Form frmIngresoGastosBancarios
             Height          =   195
             Index           =   3
             Left            =   210
-            TabIndex        =   21
+            TabIndex        =   18
             Top             =   435
             Width           =   975
          End
@@ -364,7 +363,7 @@ Begin VB.Form frmIngresoGastosBancarios
             Height          =   195
             Index           =   2
             Left            =   210
-            TabIndex        =   19
+            TabIndex        =   16
             Top             =   1155
             Width           =   480
          End
@@ -372,7 +371,7 @@ Begin VB.Form frmIngresoGastosBancarios
       Begin MSFlexGridLib.MSFlexGrid GrdModulos 
          Height          =   1770
          Left            =   180
-         TabIndex        =   16
+         TabIndex        =   13
          Top             =   1650
          Width           =   6600
          _ExtentX        =   11642
@@ -410,7 +409,7 @@ Begin VB.Form frmIngresoGastosBancarios
       EndProperty
       Height          =   240
       Left            =   90
-      TabIndex        =   26
+      TabIndex        =   23
       Top             =   3630
       Width           =   660
    End
@@ -429,7 +428,8 @@ Private Sub BuscoDatos()
     sql = sql & " WHERE GBA_NUMERO = " & XN(TxtCodigo.Text)
     Rec.Open sql, DBConn, adOpenStatic, adLockOptimistic
     If Rec.EOF = False Then ' si existe
-        FechaGasto.Text = ChkNull(Rec!GBA_FECHA)
+    '''revisar fecha
+        FechaGasto.Value = ChkNull(Rec!GBA_FECHA)
         Call BuscaCodigoProxItemData(CInt(Rec!TGB_CODIGO), CboGasto)
         Call BuscaCodigoProxItemData(CInt(Rec!BAN_CODINT), CboBanco)
         CboBanco_LostFocus
@@ -516,8 +516,8 @@ Private Sub CmdBuscAprox_Click()
     If cboGasto1.List(cboGasto1.ListIndex) <> "<Todos>" Then
         sql = sql & " AND GB.TGB_CODIGO=" & XN(cboGasto1.ItemData(cboGasto1.ListIndex))
     End If
-    If mFechaD.Text <> "" Then sql = sql & " AND GBA_FECHA >= " & XDQ(mFechaD.Text)
-    If mFechaH.Text <> "" Then sql = sql & " AND GBA_FECHA <= " & XDQ(mFechaH.Text)
+    If FechaD.Value <> "" Then sql = sql & " AND GBA_FECHA >= " & XDQ(FechaD.Value)
+    If FechaH.Value <> "" Then sql = sql & " AND GBA_FECHA <= " & XDQ(FechaH.Value)
     
     Rec.Open sql, DBConn, adOpenStatic, adLockOptimistic
     If Rec.EOF = False Then
@@ -766,13 +766,13 @@ Private Sub GrdModulos_LostFocus()
     GrdModulos.HighLight = flexHighlightNever
 End Sub
 
-Private Sub mFechaD_KeyDown(KeyCode As Integer, Shift As Integer)
+Private Sub FechaD_KeyDown(KeyCode As Integer, Shift As Integer)
     If KeyCode = 13 Then
         MySendKeys Chr(9)
     End If
 End Sub
 
-Private Sub mFechaH_KeyDown(KeyCode As Integer, Shift As Integer)
+Private Sub FechaH_KeyDown(KeyCode As Integer, Shift As Integer)
     If KeyCode = 13 Then
         MySendKeys Chr(9)
     End If
@@ -787,8 +787,8 @@ Private Sub tabTB_Click(PreviousTab As Integer)
         GrdModulos.HighLight = flexHighlightNever
         cboGasto1.ListIndex = 0
         cboBanco1.ListIndex = 0
-        mFechaD.Text = ""
-        mFechaH.Text = ""
+        FechaD.Value = ""
+        FechaH.Value = ""
         If cboGasto1.Enabled Then cboGasto1.SetFocus
     Else
         If FechaGasto.Visible = True Then FechaGasto.SetFocus

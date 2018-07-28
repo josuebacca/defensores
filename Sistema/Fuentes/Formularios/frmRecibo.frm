@@ -323,7 +323,7 @@ Begin VB.Form frmRecibo
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   52232193
+            Format          =   74121217
             CurrentDate     =   42839
          End
          Begin VB.CommandButton cmdBuscarRecibos 
@@ -379,7 +379,7 @@ Begin VB.Form frmRecibo
             _ExtentY        =   556
             _Version        =   393216
             CheckBox        =   -1  'True
-            Format          =   52232193
+            Format          =   74121217
             CurrentDate     =   42839
          End
          Begin VB.Label Label4 
@@ -463,7 +463,7 @@ Begin VB.Form frmRecibo
             _ExtentX        =   2355
             _ExtentY        =   661
             _Version        =   393216
-            Format          =   52232193
+            Format          =   74121217
             CurrentDate     =   42839
          End
          Begin VB.TextBox txtNroRecibo 
@@ -1102,7 +1102,7 @@ End Sub
 Private Sub CmdNuevo_Click()
     SSTab1.Tab = 0
     mBuscar = False
-    cmdImprimir.Enabled = False
+    CmdImprimir.Enabled = False
     fraPagos.Visible = False
     FrameRecibo.Enabled = True
     FrameSocio.Enabled = True
@@ -1113,7 +1113,7 @@ Private Sub CmdNuevo_Click()
     cmdAgregarPago.Enabled = True
     cmdBorroFila.Enabled = True
     cmdAceptarPagos.Enabled = True
-    cmdAnular.Enabled = False
+    CmdAnular.Enabled = False
     lblEstado.Caption = ""
     GrdSocios.Rows = 1
     grdPagos.Rows = 1
@@ -1156,9 +1156,9 @@ Private Sub Form_Load()
     SSTab1.Tab = 0
     Centrar_pantalla Me
     mBuscar = False
-    cmdImprimir.Enabled = False
+    CmdImprimir.Enabled = False
     FrameRecibo.Enabled = False
-    cmdAnular.Enabled = False
+    CmdAnular.Enabled = False
     lblEstado.Caption = ""
     
     fecha1.Value = Date
@@ -1347,13 +1347,13 @@ Private Sub grdBuscar_DblClick()
         cmdAceptarPagos.Enabled = False
         'cmdImprimir.Enabled = True
         If grdBuscar.TextMatrix(grdBuscar.RowSel, 7) = 1 Then
-            cmdAnular.Enabled = True
+            CmdAnular.Enabled = True
             lblEstado.Caption = ""
-            cmdImprimir.Enabled = True
+            CmdImprimir.Enabled = True
         Else
-            cmdAnular.Enabled = False
+            CmdAnular.Enabled = False
             lblEstado.Caption = "RECIBO ANULADO"
-            cmdImprimir.Enabled = False
+            CmdImprimir.Enabled = False
         End If
         SSTab1.Tab = 0
     End If
@@ -1670,7 +1670,7 @@ Private Sub BuscarDeuda(Codigo As String)
     GrdSocios.MergeCol(6) = False 'ITEM
 End Sub
 
-Private Function BuscoRecargo(mes As String, ano As String, soc As String, Item As String) As Double
+Private Function BuscoRecargo(MES As String, ano As String, soc As String, Item As String) As Double
     If mDiasRecargo > 0 Then
         Dim mFechaRec As Date
         Dim mFechita As String
@@ -1688,7 +1688,7 @@ Private Function BuscoRecargo(mes As String, ano As String, soc As String, Item 
         sql = sql & " FROM DEBITOS D, DEPORTE E"
         sql = sql & " WHERE D.DEP_CODIGO=E.DEP_CODIGO"
         sql = sql & " AND E.DEP_RECARGO > 0"
-        sql = sql & " AND D.DEB_MES=" & XN(mes)
+        sql = sql & " AND D.DEB_MES=" & XN(MES)
         sql = sql & " AND D.DEB_ANO=" & XN(ano)
         sql = sql & " AND D.SOC_CODIGO=" & XN(soc)
         sql = sql & " AND D.DEB_ITEM=" & XN(Item)
@@ -1696,10 +1696,10 @@ Private Function BuscoRecargo(mes As String, ano As String, soc As String, Item 
         If Rec2.EOF = False Then
             If CDbl(Chk0(Rec2!DEP_RECARGO)) > 0 Then
                 If CInt(ano) = Year(fecha1.Value) Then 'And Month(fecha1.value) <= CInt(MES) And CDate(fecha1.value) > mFechaRec Then
-                    If CInt(mes) < Month(fecha1.Value) Then
+                    If CInt(MES) < Month(fecha1.Value) Then
                         BuscoRecargo = Valido_Importe(Chk0(Rec2!DEP_RECARGO))
                         
-                    ElseIf (CInt(mes) = Month(fecha1.Value)) And (CDate(fecha1.Value) >= mFechaRec) Then
+                    ElseIf (CInt(MES) = Month(fecha1.Value)) And (CDate(fecha1.Value) >= mFechaRec) Then
                         BuscoRecargo = Valido_Importe(Chk0(Rec2!DEP_RECARGO))
                         
                     Else

@@ -160,7 +160,7 @@ Begin VB.Form FrmListCheques
             _ExtentX        =   2143
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   51970049
+            Format          =   110755841
             CurrentDate     =   42925
          End
          Begin MSComCtl2.DTPicker TxtFecVtoH 
@@ -172,7 +172,7 @@ Begin VB.Form FrmListCheques
             _ExtentX        =   2143
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   51970049
+            Format          =   110755841
             CurrentDate     =   42925
          End
          Begin MSComCtl2.DTPicker TxtFecIngresoH 
@@ -184,7 +184,7 @@ Begin VB.Form FrmListCheques
             _ExtentX        =   2143
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   51970049
+            Format          =   110755841
             CurrentDate     =   42925
          End
          Begin MSComCtl2.DTPicker TxtFecIngresoD 
@@ -196,7 +196,7 @@ Begin VB.Form FrmListCheques
             _ExtentX        =   2143
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   51970049
+            Format          =   110755841
             CurrentDate     =   42925
          End
          Begin MSComCtl2.DTPicker Fecha1 
@@ -208,7 +208,7 @@ Begin VB.Form FrmListCheques
             _ExtentX        =   2143
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   51970049
+            Format          =   110755841
             CurrentDate     =   42925
          End
          Begin MSComCtl2.DTPicker Fecha2 
@@ -220,7 +220,7 @@ Begin VB.Form FrmListCheques
             _ExtentX        =   2143
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   51970049
+            Format          =   110755841
             CurrentDate     =   42925
          End
          Begin MSComCtl2.DTPicker Fecha3 
@@ -232,7 +232,7 @@ Begin VB.Form FrmListCheques
             _ExtentX        =   2143
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   51970049
+            Format          =   110755841
             CurrentDate     =   42925
          End
          Begin MSComCtl2.DTPicker FechaDesde 
@@ -244,7 +244,7 @@ Begin VB.Form FrmListCheques
             _ExtentX        =   2143
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   51970049
+            Format          =   110755841
             CurrentDate     =   42925
          End
          Begin MSComCtl2.DTPicker FechaHasta 
@@ -256,7 +256,7 @@ Begin VB.Form FrmListCheques
             _ExtentX        =   2143
             _ExtentY        =   556
             _Version        =   393216
-            Format          =   51970049
+            Format          =   110755841
             CurrentDate     =   42925
          End
          Begin VB.Label Label6 

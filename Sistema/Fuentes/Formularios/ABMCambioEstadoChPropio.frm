@@ -148,7 +148,7 @@ Begin VB.Form ABMCambioEstadoChPropio
       _ExtentY        =   556
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   52494337
+      Format          =   110428161
       CurrentDate     =   42841
    End
    Begin MSComCtl2.DTPicker TxtCheFecVto 
@@ -161,7 +161,7 @@ Begin VB.Form ABMCambioEstadoChPropio
       _ExtentY        =   556
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   52494337
+      Format          =   110428161
       CurrentDate     =   42841
    End
    Begin MSComCtl2.DTPicker TxtCesFecha 
@@ -174,7 +174,7 @@ Begin VB.Form ABMCambioEstadoChPropio
       _ExtentY        =   556
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   52494337
+      Format          =   110428161
       CurrentDate     =   42841
    End
    Begin VB.Label Label2 
@@ -289,12 +289,12 @@ Option Explicit
 Private Sub CboBanco_LostFocus()
     Dim MtrObjetos As Variant
 
-    If cboBanco.ListIndex <> -1 Then
+    If CboBanco.ListIndex <> -1 Then
         lblEstado.Caption = "Buscando..."
        'CONSULTO SI EXISTE EL CHEQUE
         sql = "SELECT * FROM CHEQUE_PROPIO "
         sql = sql & " WHERE CHEP_NUMERO = " & XS(TxtCheNumero.Text)
-        sql = sql & " AND BAN_CODINT = " & XN(cboBanco.ItemData(cboBanco.ListIndex))
+        sql = sql & " AND BAN_CODINT = " & XN(CboBanco.ItemData(CboBanco.ListIndex))
         Rec.Open sql, DBConn, adOpenStatic, adLockOptimistic
         
         If Rec.EOF = False Then 'EXITE
@@ -303,15 +303,15 @@ Private Sub CboBanco_LostFocus()
             Me.TxtCheFecVto.Value = Rec!CHEP_FECVTO
             Me.TxtCheImport.Text = Valido_Importe(Rec!CHEP_IMPORT)
             TxtCheNumero.Enabled = False
-            cboBanco.Enabled = False
-            MtrObjetos = Array(TxtCheNumero, cboBanco)
+            CboBanco.Enabled = False
+            MtrObjetos = Array(TxtCheNumero, CboBanco)
             Call CambiarColor(MtrObjetos, 2, &H80000018, "D")
             'CARGO GRILLA
             sql = "SELECT CPES_FECHA,ECH_DESCRI,CPES_DESCRI"
             sql = sql & " FROM CHEQUE_PROPIO_ESTADO CE, ESTADO_CHEQUE EC"
             sql = sql & " WHERE CE.ECH_CODIGO=EC.ECH_CODIGO"
             sql = sql & " AND CE.CHEP_NUMERO=" & XS(TxtCheNumero.Text)
-            sql = sql & " AND CE.BAN_CODINT=" & XN(cboBanco.ItemData(cboBanco.ListIndex))
+            sql = sql & " AND CE.BAN_CODINT=" & XN(CboBanco.ItemData(CboBanco.ListIndex))
             sql = sql & " ORDER BY CPES_FECHA"
             Rec1.Open sql, DBConn, adOpenStatic, adLockOptimistic
             If Rec1.EOF = False Then
@@ -341,7 +341,7 @@ Private Sub CmdGrabar_Click()
     sql = "SELECT ECH_CODIGO, MAX(CPES_FECHA)as maximo"
     sql = sql & " FROM CHEQUE_PROPIO_ESTADO"
     sql = sql & " WHERE CHEP_NUMERO = " & XS(Me.TxtCheNumero.Text)
-    sql = sql & " AND ECH_CODIGO = " & XN(CboEstado.ItemData(CboEstado.ListIndex))
+    sql = sql & " AND ECH_CODIGO = " & XN(cboEstado.ItemData(cboEstado.ListIndex))
     sql = sql & " GROUP BY ECH_CODIGO, CPES_FECHA"
     
     Rec1.Open sql, DBConn, adOpenStatic, adLockOptimistic
@@ -356,7 +356,7 @@ Private Sub CmdGrabar_Click()
     Rec1.Close
             
     If Trim(Me.TxtCheNumero.Text) = "" Or _
-       Trim(Me.cboBanco.ListIndex = -1) = "" Or _
+       Trim(Me.CboBanco.ListIndex = -1) = "" Or _
        Trim(Me.TxtCesFecha.Value) = "" Then
        
         If Trim(Me.TxtCheNumero.Text) = "" Then
@@ -365,9 +365,9 @@ Private Sub CmdGrabar_Click()
            lblEstado.Caption = ""
            Exit Sub
         End If
-        If cboBanco.ListIndex = -1 Then
+        If CboBanco.ListIndex = -1 Then
            MsgBox "Falta el BANCO", 16, TIT_MSGBOX
-           cboBanco.SetFocus
+           CboBanco.SetFocus
            lblEstado.Caption = ""
            Exit Sub
         End If
@@ -382,11 +382,12 @@ Private Sub CmdGrabar_Click()
          sql = "INSERT INTO CHEQUE_PROPIO_ESTADO (ECH_CODIGO, BAN_CODINT,"
          sql = sql & " CHEP_NUMERO, CPES_FECHA, CPES_DESCRI)"
          sql = sql & " VALUES ("
-         sql = sql & XN(CboEstado.ItemData(CboEstado.ListIndex)) & ","
-         sql = sql & XN(cboBanco.ItemData(cboBanco.ListIndex)) & ","
+         sql = sql & XN(cboEstado.ItemData(cboEstado.ListIndex)) & ","
+         sql = sql & XN(CboBanco.ItemData(CboBanco.ListIndex)) & ","
          sql = sql & XS(Me.TxtCheNumero.Text) & ","
          sql = sql & XDQ(TxtCesFecha) & ","
          sql = sql & XS(Me.TxtCheObserv.Text) & ")"
+         
          DBConn.Execute sql
          
          CmdNuevo_Click
@@ -399,17 +400,17 @@ Private Sub CmdNuevo_Click()
 
    lblEstado.Caption = ""
    Me.TxtCheNumero.Enabled = True
-   Me.cboBanco.Enabled = True
+   Me.CboBanco.Enabled = True
    Me.TxtCheNumero.Text = ""
    Me.TxtCheFecEmi.Value = ""
    Me.TxtCheFecVto.Value = ""
    Me.TxtCheImport.Text = ""
    Me.Grd1.Rows = 1
    Me.TxtCesFecha.Value = ""
-   Me.CboEstado.ListIndex = 0
-   Me.cboBanco.ListIndex = 0
+   Me.cboEstado.ListIndex = 0
+   Me.CboBanco.ListIndex = 0
    Me.TxtCheObserv.Text = ""
-   MtrObjetos = Array(TxtCheNumero, cboBanco)
+   MtrObjetos = Array(TxtCheNumero, CboBanco)
    Call CambiarColor(MtrObjetos, 2, &H80000005, "E")
    Me.TxtCheNumero.SetFocus
 End Sub
@@ -454,11 +455,11 @@ Private Sub CargoEstados()
     If Rec.RecordCount > 0 Then
         Rec.MoveFirst
         Do While Not Rec.EOF
-            CboEstado.AddItem Trim(Rec!ECH_DESCRI) '& Space(100 - Len(Trim(rec!ECH_DESCRI))) & Trim(rec!ech_codigo)
-            CboEstado.ItemData(CboEstado.NewIndex) = Rec!ECH_CODIGO
+            cboEstado.AddItem Trim(Rec!ECH_DESCRI) '& Space(100 - Len(Trim(rec!ECH_DESCRI))) & Trim(rec!ech_codigo)
+            cboEstado.ItemData(cboEstado.NewIndex) = Rec!ECH_CODIGO
             Rec.MoveNext
         Loop
-        CboEstado.ListIndex = 0
+        cboEstado.ListIndex = 0
     End If
     Rec.Close
 End Sub
@@ -470,11 +471,11 @@ Private Sub CargoBanco()
     Rec.Open sql, DBConn, adOpenStatic, adLockOptimistic
     If Rec.EOF = False Then
         Do While Rec.EOF = False
-            cboBanco.AddItem Trim(Rec!BAN_DESCRI)
-            cboBanco.ItemData(cboBanco.NewIndex) = Trim(Rec!BAN_CODINT)
+            CboBanco.AddItem Trim(Rec!BAN_DESCRI)
+            CboBanco.ItemData(CboBanco.NewIndex) = Trim(Rec!BAN_CODINT)
             Rec.MoveNext
         Loop
-        cboBanco.ListIndex = 0
+        CboBanco.ListIndex = 0
     End If
     Rec.Close
 End Sub

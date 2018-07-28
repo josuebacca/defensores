@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{5F09B5DF-6F4D-11D2-8355-4854E82A9183}#15.0#0"; "FECHA32.OCX"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Begin VB.Form ABMCuentaBancaria 
    BorderStyle     =   3  'Fixed Dialog
    Caption         =   "Datos Cuenta Bancaria..."
@@ -19,7 +19,6 @@ Begin VB.Form ABMCuentaBancaria
    Icon            =   "ABMCuentaBancaria.frx":0000
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
-   LockControls    =   -1  'True
    MaxButton       =   0   'False
    MinButton       =   0   'False
    ScaleHeight     =   2745
@@ -30,7 +29,7 @@ Begin VB.Form ABMCuentaBancaria
       Left            =   5925
       Picture         =   "ABMCuentaBancaria.frx":000C
       Style           =   1  'Graphical
-      TabIndex        =   20
+      TabIndex        =   18
       ToolTipText     =   "Buscar Socio"
       Top             =   90
       Width           =   330
@@ -48,7 +47,7 @@ Begin VB.Form ABMCuentaBancaria
       Height          =   330
       Left            =   2115
       Locked          =   -1  'True
-      TabIndex        =   19
+      TabIndex        =   17
       Top             =   90
       Width           =   3780
    End
@@ -60,23 +59,11 @@ Begin VB.Form ABMCuentaBancaria
       Top             =   90
       Width           =   750
    End
-   Begin FechaCtl.Fecha txtfechaApertura 
-      Height          =   345
-      Left            =   1335
-      TabIndex        =   3
-      Top             =   1170
-      Width           =   1155
-      _ExtentX        =   2037
-      _ExtentY        =   609
-      Separador       =   "/"
-      Text            =   ""
-      MensajeErrMin   =   "La fecha ingresada no alcanza el mínimo permitido"
-   End
    Begin VB.TextBox txtdescri 
       Height          =   315
       Left            =   1335
       MaxLength       =   20
-      TabIndex        =   7
+      TabIndex        =   5
       Top             =   1890
       Width           =   4920
    End
@@ -84,7 +71,7 @@ Begin VB.Form ABMCuentaBancaria
       Height          =   315
       Left            =   3930
       MaxLength       =   10
-      TabIndex        =   6
+      TabIndex        =   4
       Top             =   1530
       Width           =   1245
    End
@@ -92,7 +79,7 @@ Begin VB.Form ABMCuentaBancaria
       Height          =   315
       Left            =   3930
       MaxLength       =   10
-      TabIndex        =   4
+      TabIndex        =   3
       Top             =   1170
       Width           =   1245
    End
@@ -101,7 +88,7 @@ Begin VB.Form ABMCuentaBancaria
       Left            =   90
       Picture         =   "ABMCuentaBancaria.frx":0396
       Style           =   1  'Graphical
-      TabIndex        =   14
+      TabIndex        =   12
       Top             =   2295
       Visible         =   0   'False
       Width           =   330
@@ -128,7 +115,7 @@ Begin VB.Form ABMCuentaBancaria
       Caption         =   "&Cerrar"
       Height          =   345
       Left            =   4935
-      TabIndex        =   9
+      TabIndex        =   7
       Top             =   2295
       Width           =   1300
    End
@@ -136,21 +123,33 @@ Begin VB.Form ABMCuentaBancaria
       Caption         =   "&Aceptar"
       Height          =   345
       Left            =   3555
-      TabIndex        =   8
+      TabIndex        =   6
       Top             =   2295
       Width           =   1300
    End
-   Begin FechaCtl.Fecha txtFechaCierre 
-      Height          =   345
+   Begin MSComCtl2.DTPicker FechaApertura 
+      Height          =   315
       Left            =   1335
-      TabIndex        =   5
-      Top             =   1530
-      Width           =   1155
-      _ExtentX        =   2037
-      _ExtentY        =   609
-      Separador       =   "/"
-      Text            =   ""
-      MensajeErrMin   =   "La fecha ingresada no alcanza el mínimo permitido"
+      TabIndex        =   19
+      Top             =   1200
+      Width           =   1335
+      _ExtentX        =   2355
+      _ExtentY        =   556
+      _Version        =   393216
+      Format          =   110428161
+      CurrentDate     =   43307
+   End
+   Begin MSComCtl2.DTPicker FechaCierre 
+      Height          =   315
+      Left            =   1335
+      TabIndex        =   20
+      Top             =   1560
+      Width           =   1335
+      _ExtentX        =   2355
+      _ExtentY        =   556
+      _Version        =   393216
+      Format          =   110428161
+      CurrentDate     =   43307
    End
    Begin VB.Label Label5 
       Alignment       =   1  'Right Justify
@@ -160,7 +159,7 @@ Begin VB.Form ABMCuentaBancaria
       Height          =   195
       Index           =   5
       Left            =   75
-      TabIndex        =   18
+      TabIndex        =   16
       Top             =   1920
       Width           =   870
    End
@@ -172,7 +171,7 @@ Begin VB.Form ABMCuentaBancaria
       Height          =   195
       Index           =   4
       Left            =   2850
-      TabIndex        =   17
+      TabIndex        =   15
       Top             =   1575
       Width           =   945
    End
@@ -184,7 +183,7 @@ Begin VB.Form ABMCuentaBancaria
       Height          =   195
       Index           =   3
       Left            =   75
-      TabIndex        =   16
+      TabIndex        =   14
       Top             =   1575
       Width           =   975
    End
@@ -196,7 +195,7 @@ Begin VB.Form ABMCuentaBancaria
       Height          =   195
       Index           =   2
       Left            =   2850
-      TabIndex        =   15
+      TabIndex        =   13
       Top             =   1200
       Width           =   900
    End
@@ -208,7 +207,7 @@ Begin VB.Form ABMCuentaBancaria
       Height          =   195
       Index           =   1
       Left            =   75
-      TabIndex        =   13
+      TabIndex        =   11
       Top             =   480
       Width           =   885
    End
@@ -220,7 +219,7 @@ Begin VB.Form ABMCuentaBancaria
       Height          =   195
       Index           =   0
       Left            =   75
-      TabIndex        =   12
+      TabIndex        =   10
       Top             =   120
       Width           =   495
    End
@@ -232,7 +231,7 @@ Begin VB.Form ABMCuentaBancaria
       Height          =   195
       Index           =   0
       Left            =   75
-      TabIndex        =   11
+      TabIndex        =   9
       Top             =   1200
       Width           =   1185
    End
@@ -244,7 +243,7 @@ Begin VB.Form ABMCuentaBancaria
       Height          =   195
       Index           =   1
       Left            =   75
-      TabIndex        =   10
+      TabIndex        =   8
       Top             =   840
       Width           =   930
    End
@@ -429,11 +428,11 @@ Function Validar(pMode As Integer) As Boolean
             txtCodBanco.SetFocus
             Exit Function
             
-        ElseIf txtfechaApertura.Text = "" Then
+        ElseIf FechaApertura.Value = "" Then
             Beep
             MsgBox "Falta información." & Chr(13) & _
                              "Ingrese la Fecha de Apertura de " & cDesRegistro & " antes de aceptar.", vbCritical + vbOKOnly, App.Title
-            txtfechaApertura.SetFocus
+            FechaApertura.SetFocus
             Exit Function
         End If
     End If
@@ -458,16 +457,16 @@ Private Sub cmdAceptar_Click()
                 cSQL = cSQL & "     (CTA_NROCTA, BAN_CODINT, CTA_FECAPE, CTA_SALINI, CTA_SALACT, CTA_FECCIE, TCU_CODIGO, CTA_DESCRI) "
                 cSQL = cSQL & "VALUES "
                 cSQL = cSQL & "     (" & XS(txtID.Text) & ", " & XN(txtCodBanco.Text) & ", "
-                cSQL = cSQL & XD(txtfechaApertura.Text) & ", " & XN(txtSaldoInicial.Text) & ", "
-                cSQL = cSQL & XN(txtSaldoActual.Text) & ", " & XD(txtFechaCierre.Text) & ", "
-                cSQL = cSQL & XN(cboTipoCuenta.ItemData(cboTipoCuenta.ListIndex)) & ", " & XS(txtdescri.Text) & ")"
+                cSQL = cSQL & XD(FechaApertura.Value) & ", " & XN(txtSaldoInicial.Text) & ", "
+                cSQL = cSQL & XN(txtSaldoActual.Text) & ", " & XD(FechaCierre.Value) & ", "
+                cSQL = cSQL & XN(cboTipoCuenta.ItemData(cboTipoCuenta.ListIndex)) & ", " & XS(txtDescri.Text) & ")"
             
             Case 2 'editar
                 
                 cSQL = "UPDATE " & cTabla & " SET "
-                cSQL = cSQL & "     CTA_FECAPE=" & XD(txtfechaApertura.Text) & ", CTA_SALINI=" & XN(txtSaldoInicial.Text)
-                cSQL = cSQL & ", CTA_SALACT=" & XN(txtSaldoActual.Text) & ", CTA_FECCIE=" & XD(txtFechaCierre.Text)
-                cSQL = cSQL & ", TCU_CODIGO=" & XN(cboTipoCuenta.ItemData(cboTipoCuenta.ListIndex)) & ", CTA_DESCRI = " & XS(txtdescri.Text)
+                cSQL = cSQL & "     CTA_FECAPE=" & XD(FechaApertura.Value) & ", CTA_SALINI=" & XN(txtSaldoInicial.Text)
+                cSQL = cSQL & ", CTA_SALACT=" & XN(txtSaldoActual.Text) & ", CTA_FECCIE=" & XD(FechaCierre.Value)
+                cSQL = cSQL & ", TCU_CODIGO=" & XN(cboTipoCuenta.ItemData(cboTipoCuenta.ListIndex)) & ", CTA_DESCRI = " & XS(txtDescri.Text)
                 cSQL = cSQL & "  WHERE CTA_NROCTA =" & XN(txtID.Text)
                 cSQL = cSQL & " AND BAN_CODINT=" & XN(txtCodBanco.Text)
             
@@ -571,11 +570,11 @@ Private Sub Form_Load()
                 txtCodBanco_LostFocus
                 
                 Call BuscaCodigoProxItemData(CLng(Rec!TCU_CODIGO), cboTipoCuenta)
-                txtfechaApertura.Text = Rec!CTA_FECAPE
+                FechaApertura.Value = Rec!CTA_FECAPE
                 txtSaldoInicial.Text = ChkNull(Rec!CTA_SALINI)
                 txtSaldoActual.Text = ChkNull(Rec!CTA_SALACT)
-                txtFechaCierre.Text = ChkNull(Rec!CTA_FECCIE)
-                txtdescri.Text = ChkNull(Rec!CTA_DESCRI)
+                FechaCierre.Value = ChkNull(Rec!CTA_FECCIE)
+                txtDescri.Text = ChkNull(Rec!CTA_DESCRI)
             Else
                 Beep
                 MsgBox "Imposible encontrar el registro seleccionado.", vbCritical + vbOKOnly, App.Title

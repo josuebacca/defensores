@@ -139,7 +139,7 @@ Sub DesacCtrl(CtrlName As Control)
         CtrlName.TabStop = False
     End If
     
-    CtrlName.BackColor = QBColor(7) 'gris
+    CtrlName.BackColor = QBColor(7)    'gris
     'CtrlName.TabStop = False
 
 End Sub

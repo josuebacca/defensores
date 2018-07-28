@@ -1,7 +1,7 @@
 VERSION 5.00
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
 Object = "{5E9E78A0-531B-11CF-91F6-C2863C385E30}#1.0#0"; "MSFLXGRD.OCX"
-Object = "{5F09B5DF-6F4D-11D2-8355-4854E82A9183}#15.0#0"; "FECHA32.OCX"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Begin VB.Form frmDebCreBancarios 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Ingreso de Débitos y Créditos Bancarios"
@@ -20,7 +20,6 @@ Begin VB.Form frmDebCreBancarios
    EndProperty
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
-   LockControls    =   -1  'True
    MaxButton       =   0   'False
    MDIChild        =   -1  'True
    MinButton       =   0   'False
@@ -30,7 +29,7 @@ Begin VB.Form frmDebCreBancarios
       Caption         =   "&Cancelar"
       Height          =   435
       Left            =   4155
-      TabIndex        =   9
+      TabIndex        =   8
       Top             =   4035
       Width           =   915
    End
@@ -38,7 +37,7 @@ Begin VB.Form frmDebCreBancarios
       Caption         =   "&Aceptar"
       Height          =   435
       Left            =   3225
-      TabIndex        =   8
+      TabIndex        =   7
       Top             =   4035
       Width           =   915
    End
@@ -46,7 +45,7 @@ Begin VB.Form frmDebCreBancarios
       Caption         =   "&Salir"
       Height          =   435
       Left            =   6015
-      TabIndex        =   11
+      TabIndex        =   10
       Top             =   4035
       Width           =   915
    End
@@ -54,14 +53,14 @@ Begin VB.Form frmDebCreBancarios
       Caption         =   "&Eliminar"
       Height          =   435
       Left            =   5085
-      TabIndex        =   10
+      TabIndex        =   9
       Top             =   4035
       Width           =   915
    End
    Begin TabDlg.SSTab TabTB 
       Height          =   3960
       Left            =   30
-      TabIndex        =   18
+      TabIndex        =   15
       Top             =   30
       Width           =   6930
       _ExtentX        =   12224
@@ -88,10 +87,8 @@ Begin VB.Form frmDebCreBancarios
       TabCaption(1)   =   "B&uscar"
       TabPicture(1)   =   "frmDebCreBancarios.frx":001C
       Tab(1).ControlEnabled=   0   'False
-      Tab(1).Control(0)=   "GrdModulos"
-      Tab(1).Control(0).Enabled=   0   'False
-      Tab(1).Control(1)=   "Frame1"
-      Tab(1).Control(1).Enabled=   0   'False
+      Tab(1).Control(0)=   "Frame1"
+      Tab(1).Control(1)=   "GrdModulos"
       Tab(1).ControlCount=   2
       Begin VB.Frame Frame1 
          BeginProperty Font 
@@ -105,14 +102,14 @@ Begin VB.Form frmDebCreBancarios
          EndProperty
          Height          =   1260
          Left            =   -74805
-         TabIndex        =   21
+         TabIndex        =   18
          Top             =   360
          Width           =   6570
          Begin VB.ComboBox cboBanco1 
             Height          =   315
             Left            =   1185
             Style           =   2  'Dropdown List
-            TabIndex        =   13
+            TabIndex        =   12
             Top             =   540
             Width           =   4005
          End
@@ -120,51 +117,51 @@ Begin VB.Form frmDebCreBancarios
             Height          =   315
             Left            =   1185
             Style           =   2  'Dropdown List
-            TabIndex        =   12
+            TabIndex        =   11
             Top             =   195
             Width           =   4005
-         End
-         Begin FechaCtl.Fecha mFechaD 
-            Height          =   315
-            Left            =   1185
-            TabIndex        =   14
-            Top             =   900
-            Width           =   1155
-            _ExtentX        =   2037
-            _ExtentY        =   556
-            Separador       =   "/"
-            Text            =   ""
-            MensajeErrMin   =   "La fecha ingresada no alcanza el mínimo permitido"
          End
          Begin VB.CommandButton CmdBuscAprox 
             Caption         =   "Buscar"
             Height          =   375
             Left            =   5400
             MaskColor       =   &H00404040&
-            TabIndex        =   16
+            TabIndex        =   13
             ToolTipText     =   "Buscar"
             Top             =   825
             UseMaskColor    =   -1  'True
             Width           =   1065
          End
-         Begin FechaCtl.Fecha mFechaH 
+         Begin MSComCtl2.DTPicker mFechaD 
             Height          =   315
-            Left            =   4035
-            TabIndex        =   15
-            Top             =   900
-            Width           =   1155
-            _ExtentX        =   2037
+            Left            =   1185
+            TabIndex        =   32
+            Top             =   840
+            Width           =   1335
+            _ExtentX        =   2355
             _ExtentY        =   556
-            Separador       =   "/"
-            Text            =   ""
-            MensajeErrMin   =   "La fecha ingresada no alcanza el mínimo permitido"
+            _Version        =   393216
+            Format          =   110428161
+            CurrentDate     =   43307
+         End
+         Begin MSComCtl2.DTPicker mFechaH 
+            Height          =   315
+            Left            =   3960
+            TabIndex        =   33
+            Top             =   840
+            Width           =   1335
+            _ExtentX        =   2355
+            _ExtentY        =   556
+            _Version        =   393216
+            Format          =   110428161
+            CurrentDate     =   43307
          End
          Begin VB.Label Label5 
             AutoSize        =   -1  'True
             Caption         =   "Banco:"
             Height          =   195
             Left            =   75
-            TabIndex        =   31
+            TabIndex        =   28
             Top             =   600
             Width           =   495
          End
@@ -174,7 +171,7 @@ Begin VB.Form frmDebCreBancarios
             Height          =   195
             Index           =   1
             Left            =   75
-            TabIndex        =   30
+            TabIndex        =   27
             Top             =   255
             Width           =   780
          End
@@ -183,7 +180,7 @@ Begin VB.Form frmDebCreBancarios
             Caption         =   "Fecha Hasta:"
             Height          =   195
             Left            =   2955
-            TabIndex        =   26
+            TabIndex        =   23
             Top             =   930
             Width           =   960
          End
@@ -192,7 +189,7 @@ Begin VB.Form frmDebCreBancarios
             Caption         =   "Fecha Desde:"
             Height          =   195
             Left            =   75
-            TabIndex        =   25
+            TabIndex        =   22
             Top             =   945
             Width           =   990
          End
@@ -210,7 +207,7 @@ Begin VB.Form frmDebCreBancarios
          EndProperty
          Height          =   3420
          Left            =   135
-         TabIndex        =   19
+         TabIndex        =   16
          Top             =   420
          Width           =   6615
          Begin VB.ComboBox cboDebCre 
@@ -234,7 +231,7 @@ Begin VB.Form frmDebCreBancarios
             Caption         =   "Aplicar impuesto transacciones financieras"
             Height          =   240
             Left            =   1215
-            TabIndex        =   7
+            TabIndex        =   6
             Top             =   2970
             Width           =   4005
          End
@@ -242,7 +239,7 @@ Begin VB.Form frmDebCreBancarios
             Height          =   315
             Left            =   1215
             Style           =   2  'Dropdown List
-            TabIndex        =   4
+            TabIndex        =   3
             Top             =   1860
             Width           =   4395
          End
@@ -250,7 +247,7 @@ Begin VB.Form frmDebCreBancarios
             Height          =   315
             Left            =   1215
             Style           =   2  'Dropdown List
-            TabIndex        =   3
+            TabIndex        =   2
             Top             =   1500
             Width           =   4395
          End
@@ -258,28 +255,16 @@ Begin VB.Form frmDebCreBancarios
             Height          =   315
             Left            =   1215
             Style           =   2  'Dropdown List
-            TabIndex        =   5
+            TabIndex        =   4
             Top             =   2220
             Width           =   2100
          End
          Begin VB.TextBox txtImporte 
             Height          =   330
             Left            =   1215
-            TabIndex        =   6
+            TabIndex        =   5
             Top             =   2580
             Width           =   1125
-         End
-         Begin FechaCtl.Fecha FechaGasto 
-            Height          =   315
-            Left            =   1215
-            TabIndex        =   2
-            Top             =   1170
-            Width           =   1170
-            _ExtentX        =   2064
-            _ExtentY        =   556
-            Separador       =   "/"
-            Text            =   ""
-            MensajeErrMin   =   "La fecha ingresada no alcanza el mínimo permitido"
          End
          Begin VB.TextBox TxtCodigo 
             Height          =   315
@@ -288,13 +273,25 @@ Begin VB.Form frmDebCreBancarios
             Top             =   435
             Width           =   1125
          End
+         Begin MSComCtl2.DTPicker FechaGasto 
+            Height          =   315
+            Left            =   1215
+            TabIndex        =   31
+            Top             =   1200
+            Width           =   1335
+            _ExtentX        =   2355
+            _ExtentY        =   556
+            _Version        =   393216
+            Format          =   110428161
+            CurrentDate     =   43307
+         End
          Begin VB.Label Label1 
             AutoSize        =   -1  'True
             Caption         =   "Deb/Cre:"
             Height          =   195
             Index           =   5
             Left            =   165
-            TabIndex        =   33
+            TabIndex        =   30
             Top             =   855
             Width           =   660
          End
@@ -312,7 +309,7 @@ Begin VB.Form frmDebCreBancarios
             EndProperty
             Height          =   240
             Left            =   4275
-            TabIndex        =   32
+            TabIndex        =   29
             Top             =   15
             Width           =   1875
          End
@@ -321,7 +318,7 @@ Begin VB.Form frmDebCreBancarios
             Caption         =   "Banco:"
             Height          =   195
             Left            =   165
-            TabIndex        =   29
+            TabIndex        =   26
             Top             =   1920
             Width           =   495
          End
@@ -331,7 +328,7 @@ Begin VB.Form frmDebCreBancarios
             Height          =   195
             Index           =   0
             Left            =   165
-            TabIndex        =   28
+            TabIndex        =   25
             Top             =   2250
             Width           =   885
          End
@@ -342,7 +339,7 @@ Begin VB.Form frmDebCreBancarios
             Height          =   195
             Index           =   4
             Left            =   165
-            TabIndex        =   24
+            TabIndex        =   21
             Top             =   2625
             Width           =   630
          End
@@ -352,7 +349,7 @@ Begin VB.Form frmDebCreBancarios
             Caption         =   "Fecha:"
             Height          =   195
             Left            =   165
-            TabIndex        =   23
+            TabIndex        =   20
             Top             =   1215
             Width           =   495
          End
@@ -362,7 +359,7 @@ Begin VB.Form frmDebCreBancarios
             Height          =   195
             Index           =   3
             Left            =   165
-            TabIndex        =   22
+            TabIndex        =   19
             Top             =   480
             Width           =   975
          End
@@ -372,7 +369,7 @@ Begin VB.Form frmDebCreBancarios
             Height          =   195
             Index           =   2
             Left            =   165
-            TabIndex        =   20
+            TabIndex        =   17
             Top             =   1545
             Width           =   360
          End
@@ -380,7 +377,7 @@ Begin VB.Form frmDebCreBancarios
       Begin MSFlexGridLib.MSFlexGrid GrdModulos 
          Height          =   2100
          Left            =   -74820
-         TabIndex        =   17
+         TabIndex        =   14
          Top             =   1650
          Width           =   6600
          _ExtentX        =   11642
@@ -418,7 +415,7 @@ Begin VB.Form frmDebCreBancarios
       EndProperty
       Height          =   240
       Left            =   120
-      TabIndex        =   27
+      TabIndex        =   24
       Top             =   4095
       Width           =   660
    End
@@ -429,30 +426,30 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
-Dim i As Integer
+Dim I As Integer
 
 Private Sub BuscoDatos()
     'Set rec = New ADODB.Recordset
     sql = "SELECT * FROM DEBCRE_BANCARIOS"
     sql = sql & " WHERE DCB_NUMERO = " & XN(TxtCodigo.Text)
-    rec.Open sql, DBConn, adOpenStatic, adLockOptimistic
-    If rec.EOF = False Then ' si existe
-        If Trim(rec!DCB_TIPO) = "D" Then
+    Rec.Open sql, DBConn, adOpenStatic, adLockOptimistic
+    If Rec.EOF = False Then ' si existe
+        If Trim(Rec!DCB_TIPO) = "D" Then
             cboDebCre.ListIndex = 1
             cboDebCre_LostFocus
         Else
             cboDebCre.ListIndex = 0
             cboDebCre_LostFocus
         End If
-        FechaGasto.Text = ChkNull(rec!DCB_FECHA)
-        Call BuscaCodigoProxItemData(CInt(rec!TDCB_CODIGO), CboGasto)
-        Call BuscaCodigoProxItemData(CInt(rec!BAN_CODINT), CboBanco)
+        FechaGasto.Text = ChkNull(Rec!DCB_FECHA)
+        Call BuscaCodigoProxItemData(CInt(Rec!TDCB_CODIGO), CboGasto)
+        Call BuscaCodigoProxItemData(CInt(Rec!BAN_CODINT), CboBanco)
         CboBanco_LostFocus
-        Call BuscaProx(rec!CTA_NROCTA, cboCtaBancaria)
-        txtImporte.Text = Valido_Importe(ChkNull(rec!DCB_IMPORTE))
-        If rec!DCB_IMPUESTO = "S" Then
+        Call BuscaProx(Rec!CTA_NROCTA, cboCtaBancaria)
+        txtImporte.Text = Valido_Importe(ChkNull(Rec!DCB_IMPORTE))
+        If Rec!DCB_IMPUESTO = "S" Then
             chkAplicoImpuesto.Value = Checked
-        ElseIf rec!DCB_IMPUESTO = "N" Then
+        ElseIf Rec!DCB_IMPUESTO = "N" Then
             chkAplicoImpuesto.Value = Unchecked
         End If
 '    Else
@@ -462,7 +459,7 @@ Private Sub BuscoDatos()
 '        rec.Close
 '        Exit Sub
     End If
-    rec.Close
+    Rec.Close
 End Sub
 
 Private Sub CboBanco_LostFocus()
@@ -539,7 +536,7 @@ Private Sub cmdBorrar_Click()
     Exit Sub
     
 CLAVOSE:
-    If rec.State = 1 Then rec.Close
+    If Rec.State = 1 Then Rec.Close
     lblEstado.Caption = ""
     Screen.MousePointer = vbNormal
     DBConn.RollbackTrans
@@ -567,16 +564,16 @@ Private Sub CmdBuscAprox_Click()
     If cboGasto1.List(cboGasto1.ListIndex) <> "(Todos)" Then
         sql = sql & " AND GB.TDCB_CODIGO=" & XN(cboGasto1.ItemData(cboGasto1.ListIndex))
     End If
-    If mFechaD.Text <> "" Then sql = sql & " AND DCB_FECHA >= " & XDQ(mFechaD.Text)
-    If mFechaH.Text <> "" Then sql = sql & " AND DCB_FECHA <= " & XDQ(mFechaH.Text)
+    If mFechaD.Value <> "" Then sql = sql & " AND DCB_FECHA >= " & XDQ(mFechaD.Value)
+    If mFechaH.Value <> "" Then sql = sql & " AND DCB_FECHA <= " & XDQ(mFechaH.Value)
     
-    rec.Open sql, DBConn, adOpenStatic, adLockOptimistic
-    If rec.EOF = False Then
-        rec.MoveFirst
-        Do While Not rec.EOF
-            GrdModulos.AddItem rec!DCB_FECHA & Chr(9) & Valido_Importe(rec!DCB_IMPORTE) & Chr(9) & _
-                        rec!TDCB_DESCRI & Chr(9) & rec!BAN_DESCRI & Chr(9) & rec!DCB_NUMERO
-            rec.MoveNext
+    Rec.Open sql, DBConn, adOpenStatic, adLockOptimistic
+    If Rec.EOF = False Then
+        Rec.MoveFirst
+        Do While Not Rec.EOF
+            GrdModulos.AddItem Rec!DCB_FECHA & Chr(9) & Valido_Importe(Rec!DCB_IMPORTE) & Chr(9) & _
+                        Rec!TDCB_DESCRI & Chr(9) & Rec!BAN_DESCRI & Chr(9) & Rec!DCB_NUMERO
+            Rec.MoveNext
         Loop
         GrdModulos.HighLight = flexHighlightAlways
         If GrdModulos.Enabled Then GrdModulos.SetFocus
@@ -587,7 +584,7 @@ Private Sub CmdBuscAprox_Click()
         If mFechaD.Enabled Then mFechaD.SetFocus
     End If
     lblEstado.Caption = ""
-    rec.Close
+    Rec.Close
     Screen.MousePointer = vbNormal
 End Sub
 
@@ -623,9 +620,9 @@ Private Sub CmdGrabar_Click()
     DBConn.BeginTrans
     
     sql = "SELECT DCB_FECHA FROM DEBCRE_BANCARIOS WHERE DCB_NUMERO = " & XN(TxtCodigo.Text)
-    rec.Open sql, DBConn, adOpenStatic, adLockOptimistic
+    Rec.Open sql, DBConn, adOpenStatic, adLockOptimistic
     
-    If rec.EOF = False Then
+    If Rec.EOF = False Then
         sql = "UPDATE DEBCRE_BANCARIOS"
         sql = sql & " SET DCB_FECHA = " & XDQ(FechaGasto.Text)
         sql = sql & " ,TDCB_CODIGO = " & XN(CboGasto.ItemData(CboGasto.ListIndex))
@@ -671,7 +668,7 @@ Private Sub CmdGrabar_Click()
 '        End If
         DBConn.Execute sql
     End If
-    rec.Close
+    Rec.Close
     DBConn.CommitTrans
     lblEstado.Caption = ""
     Screen.MousePointer = vbNormal
@@ -714,13 +711,13 @@ Private Sub CmdNuevo_Click()
     TxtCodigo.SetFocus
 End Sub
 
-Private Sub CmdSalir_Click()
+Private Sub cmdSalir_Click()
     Set frmDebCreBancarios = Nothing
     Unload Me
 End Sub
 
 Private Sub FechaGasto_LostFocus()
-    If FechaGasto.Text = "" Then FechaGasto.Text = Date
+    If FechaGasto.Value = "" Then FechaGasto.Value = Date
 End Sub
 
 Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
@@ -730,7 +727,7 @@ End Sub
 
 Private Sub Form_KeyPress(KeyAscii As Integer)
     'si presiono ESCAPE salgo del form
-    If KeyAscii = vbKeyEscape Then CmdSalir_Click
+    If KeyAscii = vbKeyEscape Then cmdSalir_Click
     'If KeyAscii = vbKeyReturn And _
         Me.ActiveControl.Name <> "TxtDescriB" And _
         Me.ActiveControl.Name <> "GrdContactos" Then  'avanza de campo
@@ -741,7 +738,7 @@ Private Sub Form_KeyPress(KeyAscii As Integer)
 End Sub
 
 Private Sub Form_Load()
-    Set rec = New ADODB.Recordset
+    Set Rec = New ADODB.Recordset
     Set Rec1 = New ADODB.Recordset
     
     'COMBO DEB/CRE
@@ -769,8 +766,8 @@ Private Sub Form_Load()
     GrdModulos.HighLight = flexHighlightNever
     GrdModulos.BorderStyle = flexBorderNone
     GrdModulos.row = 0
-    For i = 0 To GrdModulos.Cols - 1
-        GrdModulos.Col = i
+    For I = 0 To GrdModulos.Cols - 1
+        GrdModulos.Col = I
         GrdModulos.CellForeColor = &HFFFFFF 'FUENTE COLOR BLANCO
         GrdModulos.CellBackColor = &H808080    'GRIS OSCURO
         GrdModulos.CellFontBold = True
@@ -806,21 +803,21 @@ Private Sub CargoComboBanco()
     sql = sql & " WHERE B.BAN_CODINT=CB.BAN_CODINT"
     sql = sql & " ORDER BY B.BAN_DESCRI"
     
-    rec.Open sql, DBConn, adOpenStatic, adLockOptimistic
-    If rec.EOF = False Then
-        rec.MoveFirst
+    Rec.Open sql, DBConn, adOpenStatic, adLockOptimistic
+    If Rec.EOF = False Then
+        Rec.MoveFirst
             Me.cboBanco1.AddItem "(Todos)"
-        Do While Not rec.EOF
-            Me.CboBanco.AddItem Trim(rec!BAN_DESCRI)
-            Me.CboBanco.ItemData(Me.CboBanco.NewIndex) = rec!BAN_CODINT
-            Me.cboBanco1.AddItem Trim(rec!BAN_DESCRI)
-            Me.cboBanco1.ItemData(Me.cboBanco1.NewIndex) = rec!BAN_CODINT
-            rec.MoveNext
+        Do While Not Rec.EOF
+            Me.CboBanco.AddItem Trim(Rec!BAN_DESCRI)
+            Me.CboBanco.ItemData(Me.CboBanco.NewIndex) = Rec!BAN_CODINT
+            Me.cboBanco1.AddItem Trim(Rec!BAN_DESCRI)
+            Me.cboBanco1.ItemData(Me.cboBanco1.NewIndex) = Rec!BAN_CODINT
+            Rec.MoveNext
         Loop
         Me.CboBanco.ListIndex = 0
         Me.cboBanco1.ListIndex = 0
     End If
-    rec.Close
+    Rec.Close
 End Sub
 
 Private Sub CargoComboGasto()
@@ -828,18 +825,18 @@ Private Sub CargoComboGasto()
     sql = sql & " FROM TIPO_DEBCRE_BANCARIO"
     sql = sql & " ORDER BY TDCB_DESCRI"
     
-    rec.Open sql, DBConn, adOpenStatic, adLockOptimistic
-    If rec.EOF = False Then
-        rec.MoveFirst
+    Rec.Open sql, DBConn, adOpenStatic, adLockOptimistic
+    If Rec.EOF = False Then
+        Rec.MoveFirst
             Me.cboGasto1.AddItem "(Todos)"
-        Do While Not rec.EOF
-            Me.cboGasto1.AddItem Trim(rec!TDCB_DESCRI)
-            Me.cboGasto1.ItemData(Me.cboGasto1.NewIndex) = rec!TDCB_CODIGO
-            rec.MoveNext
+        Do While Not Rec.EOF
+            Me.cboGasto1.AddItem Trim(Rec!TDCB_DESCRI)
+            Me.cboGasto1.ItemData(Me.cboGasto1.NewIndex) = Rec!TDCB_CODIGO
+            Rec.MoveNext
         Loop
         Me.cboGasto1.ListIndex = 0
     End If
-    rec.Close
+    Rec.Close
 End Sub
 
 Private Sub GrdModulos_dblClick()
@@ -895,8 +892,8 @@ Private Sub tabTB_Click(PreviousTab As Integer)
         GrdModulos.HighLight = flexHighlightNever
         cboGasto1.ListIndex = 0
         cboBanco1.ListIndex = 0
-        mFechaD.Text = ""
-        mFechaH.Text = ""
+        FechaD.Value = ""
+        FechaH.Value = ""
         If cboGasto1.Enabled Then cboGasto1.SetFocus
     Else
         If FechaGasto.Visible = True Then FechaGasto.SetFocus

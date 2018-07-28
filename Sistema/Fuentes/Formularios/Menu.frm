@@ -78,13 +78,11 @@ Begin VB.MDIForm Menu
             Bevel           =   2
             Object.Width           =   6526
             MinWidth        =   6526
-            TextSave        =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel2 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Object.Width           =   7673
             MinWidth        =   7673
-            TextSave        =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel3 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
@@ -112,7 +110,7 @@ Begin VB.MDIForm Menu
             Bevel           =   2
             Object.Width           =   1587
             MinWidth        =   1587
-            TextSave        =   "21:47"
+            TextSave        =   "12:50"
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel6 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
@@ -121,7 +119,7 @@ Begin VB.MDIForm Menu
             Bevel           =   2
             Object.Width           =   1940
             MinWidth        =   1940
-            TextSave        =   "09/07/2017"
+            TextSave        =   "27/07/2018"
             Object.Tag             =   ""
          EndProperty
       EndProperty

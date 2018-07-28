@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
-Object = "{5F09B5DF-6F4D-11D2-8355-4854E82A9183}#15.0#0"; "FECHA32.OCX"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Begin VB.Form FrmBoletaDeposito 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Boleta de Depósito"
@@ -25,17 +25,17 @@ Begin VB.Form FrmBoletaDeposito
    ScaleHeight     =   7515
    ScaleWidth      =   9030
    StartUpPosition =   2  'CenterScreen
-   Begin FechaCtl.Fecha TxtBolFecha 
-      Height          =   300
+   Begin MSComCtl2.DTPicker Fecha 
+      Height          =   315
       Left            =   3720
-      TabIndex        =   1
-      Top             =   135
-      Width           =   1155
-      _ExtentX        =   2037
-      _ExtentY        =   529
-      Separador       =   "/"
-      Text            =   ""
-      MensajeErrMin   =   "La fecha ingresada no alcanza el mínimo permitido"
+      TabIndex        =   89
+      Top             =   120
+      Width           =   1335
+      _ExtentX        =   2355
+      _ExtentY        =   556
+      _Version        =   393216
+      Format          =   74121217
+      CurrentDate     =   43307
    End
    Begin VB.CommandButton CmdEliminar 
       Caption         =   "&Eliminar"
@@ -44,7 +44,7 @@ Begin VB.Form FrmBoletaDeposito
       Left            =   4725
       Picture         =   "FrmBoletaDeposito.frx":030A
       Style           =   1  'Graphical
-      TabIndex        =   88
+      TabIndex        =   87
       Top             =   6420
       Width           =   1020
    End
@@ -52,7 +52,7 @@ Begin VB.Form FrmBoletaDeposito
       Height          =   330
       Index           =   9
       Left            =   2670
-      TabIndex        =   70
+      TabIndex        =   69
       Top             =   4635
       Visible         =   0   'False
       Width           =   1110
@@ -61,7 +61,7 @@ Begin VB.Form FrmBoletaDeposito
       Height          =   330
       Index           =   8
       Left            =   2670
-      TabIndex        =   69
+      TabIndex        =   68
       Top             =   4305
       Visible         =   0   'False
       Width           =   1110
@@ -70,7 +70,7 @@ Begin VB.Form FrmBoletaDeposito
       Height          =   330
       Index           =   7
       Left            =   2670
-      TabIndex        =   68
+      TabIndex        =   67
       Top             =   3960
       Visible         =   0   'False
       Width           =   1110
@@ -79,7 +79,7 @@ Begin VB.Form FrmBoletaDeposito
       Height          =   330
       Index           =   6
       Left            =   2670
-      TabIndex        =   67
+      TabIndex        =   66
       Top             =   3645
       Visible         =   0   'False
       Width           =   1110
@@ -88,7 +88,7 @@ Begin VB.Form FrmBoletaDeposito
       Height          =   330
       Index           =   5
       Left            =   2670
-      TabIndex        =   66
+      TabIndex        =   65
       Top             =   3300
       Visible         =   0   'False
       Width           =   1110
@@ -97,7 +97,7 @@ Begin VB.Form FrmBoletaDeposito
       Height          =   330
       Index           =   4
       Left            =   2670
-      TabIndex        =   65
+      TabIndex        =   64
       Top             =   2970
       Visible         =   0   'False
       Width           =   1110
@@ -106,7 +106,7 @@ Begin VB.Form FrmBoletaDeposito
       Height          =   330
       Index           =   3
       Left            =   2670
-      TabIndex        =   64
+      TabIndex        =   63
       Top             =   2640
       Visible         =   0   'False
       Width           =   1110
@@ -115,7 +115,7 @@ Begin VB.Form FrmBoletaDeposito
       Height          =   330
       Index           =   2
       Left            =   2670
-      TabIndex        =   63
+      TabIndex        =   62
       Top             =   2310
       Visible         =   0   'False
       Width           =   1110
@@ -124,7 +124,7 @@ Begin VB.Form FrmBoletaDeposito
       Height          =   330
       Index           =   1
       Left            =   2670
-      TabIndex        =   62
+      TabIndex        =   61
       Top             =   1980
       Visible         =   0   'False
       Width           =   1110
@@ -136,7 +136,7 @@ Begin VB.Form FrmBoletaDeposito
       Left            =   6795
       Picture         =   "FrmBoletaDeposito.frx":0EDE
       Style           =   1  'Graphical
-      TabIndex        =   60
+      TabIndex        =   59
       Top             =   6420
       Width           =   1020
    End
@@ -147,7 +147,7 @@ Begin VB.Form FrmBoletaDeposito
       Left            =   3690
       Picture         =   "FrmBoletaDeposito.frx":1AB2
       Style           =   1  'Graphical
-      TabIndex        =   58
+      TabIndex        =   57
       Top             =   6420
       Width           =   1020
    End
@@ -155,7 +155,7 @@ Begin VB.Form FrmBoletaDeposito
       Enabled         =   0   'False
       Height          =   315
       Left            =   5895
-      TabIndex        =   45
+      TabIndex        =   44
       Top             =   525
       Width           =   465
    End
@@ -165,7 +165,7 @@ Begin VB.Form FrmBoletaDeposito
       Left            =   1605
       List            =   "FrmBoletaDeposito.frx":1DBE
       Style           =   2  'Dropdown List
-      TabIndex        =   2
+      TabIndex        =   1
       Top             =   525
       Width           =   3255
    End
@@ -176,7 +176,7 @@ Begin VB.Form FrmBoletaDeposito
       Left            =   7830
       Picture         =   "FrmBoletaDeposito.frx":20CA
       Style           =   1  'Graphical
-      TabIndex        =   85
+      TabIndex        =   84
       Top             =   6420
       Width           =   1020
    End
@@ -187,7 +187,7 @@ Begin VB.Form FrmBoletaDeposito
       Left            =   2655
       Picture         =   "FrmBoletaDeposito.frx":26DE
       Style           =   1  'Graphical
-      TabIndex        =   84
+      TabIndex        =   83
       Top             =   6420
       Width           =   1020
    End
@@ -199,7 +199,7 @@ Begin VB.Form FrmBoletaDeposito
       Left            =   5760
       Picture         =   "FrmBoletaDeposito.frx":2CF2
       Style           =   1  'Graphical
-      TabIndex        =   15
+      TabIndex        =   14
       Top             =   6420
       Width           =   1020
    End
@@ -207,7 +207,7 @@ Begin VB.Form FrmBoletaDeposito
       Height          =   315
       Left            =   7290
       Style           =   2  'Dropdown List
-      TabIndex        =   3
+      TabIndex        =   2
       Top             =   525
       Width           =   1485
    End
@@ -222,7 +222,7 @@ Begin VB.Form FrmBoletaDeposito
    Begin TabDlg.SSTab SSTabABMCheque 
       Height          =   5130
       Left            =   195
-      TabIndex        =   20
+      TabIndex        =   19
       Top             =   990
       Width           =   8670
       _ExtentX        =   15293
@@ -368,7 +368,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   7
          Left            =   7110
-         TabIndex        =   82
+         TabIndex        =   81
          Top             =   2970
          Width           =   1275
       End
@@ -379,7 +379,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   6
          Left            =   7110
-         TabIndex        =   81
+         TabIndex        =   80
          Top             =   2640
          Width           =   1275
       End
@@ -389,7 +389,7 @@ Begin VB.Form FrmBoletaDeposito
          Enabled         =   0   'False
          Height          =   315
          Left            =   7110
-         TabIndex        =   80
+         TabIndex        =   79
          Top             =   3990
          Width           =   1275
       End
@@ -400,7 +400,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   5
          Left            =   7110
-         TabIndex        =   79
+         TabIndex        =   78
          Top             =   2310
          Width           =   1275
       End
@@ -411,7 +411,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   4
          Left            =   7110
-         TabIndex        =   78
+         TabIndex        =   77
          Top             =   1980
          Width           =   1275
       End
@@ -422,7 +422,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   3
          Left            =   7110
-         TabIndex        =   77
+         TabIndex        =   76
          Top             =   1650
          Width           =   1275
       End
@@ -433,7 +433,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   2
          Left            =   7110
-         TabIndex        =   76
+         TabIndex        =   75
          Top             =   1320
          Width           =   1275
       End
@@ -444,7 +444,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   1
          Left            =   7110
-         TabIndex        =   75
+         TabIndex        =   74
          Top             =   990
          Width           =   1275
       End
@@ -455,7 +455,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   0
          Left            =   7110
-         TabIndex        =   74
+         TabIndex        =   73
          Top             =   660
          Width           =   1275
       End
@@ -466,7 +466,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   9
          Left            =   7110
-         TabIndex        =   73
+         TabIndex        =   72
          Top             =   3645
          Width           =   1275
       End
@@ -477,7 +477,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   8
          Left            =   7110
-         TabIndex        =   72
+         TabIndex        =   71
          Top             =   3315
          Width           =   1275
       End
@@ -486,7 +486,7 @@ Begin VB.Form FrmBoletaDeposito
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   7110
-         TabIndex        =   14
+         TabIndex        =   13
          Top             =   4335
          Width           =   1275
       End
@@ -496,7 +496,7 @@ Begin VB.Form FrmBoletaDeposito
          Enabled         =   0   'False
          Height          =   315
          Left            =   7110
-         TabIndex        =   71
+         TabIndex        =   70
          Top             =   4725
          Width           =   1275
       End
@@ -504,7 +504,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   330
          Index           =   0
          Left            =   2475
-         TabIndex        =   61
+         TabIndex        =   60
          Top             =   645
          Visible         =   0   'False
          Width           =   1110
@@ -513,7 +513,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   330
          Index           =   9
          Left            =   4575
-         TabIndex        =   55
+         TabIndex        =   54
          Top             =   3645
          Visible         =   0   'False
          Width           =   600
@@ -522,7 +522,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   330
          Index           =   8
          Left            =   4575
-         TabIndex        =   54
+         TabIndex        =   53
          Top             =   3315
          Visible         =   0   'False
          Width           =   600
@@ -531,7 +531,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   330
          Index           =   7
          Left            =   4575
-         TabIndex        =   53
+         TabIndex        =   52
          Top             =   2970
          Visible         =   0   'False
          Width           =   600
@@ -540,7 +540,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   330
          Index           =   6
          Left            =   4575
-         TabIndex        =   52
+         TabIndex        =   51
          Top             =   2640
          Visible         =   0   'False
          Width           =   600
@@ -549,7 +549,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   330
          Index           =   5
          Left            =   4575
-         TabIndex        =   51
+         TabIndex        =   50
          Top             =   2310
          Visible         =   0   'False
          Width           =   600
@@ -557,35 +557,35 @@ Begin VB.Form FrmBoletaDeposito
       Begin VB.TextBox TxtCodInt 
          Height          =   330
          Index           =   4
-         Left            =   4575
-         TabIndex        =   50
-         Top             =   1980
-         Visible         =   0   'False
-         Width           =   600
-      End
-      Begin VB.TextBox TxtCodInt 
-         Height          =   330
-         Index           =   3
          Left            =   4575
          TabIndex        =   49
-         Top             =   1650
+         Top             =   1980
          Visible         =   0   'False
          Width           =   600
       End
       Begin VB.TextBox TxtCodInt 
          Height          =   330
-         Index           =   2
+         Index           =   3
          Left            =   4575
          TabIndex        =   48
-         Top             =   1320
+         Top             =   1650
          Visible         =   0   'False
          Width           =   600
       End
       Begin VB.TextBox TxtCodInt 
          Height          =   330
-         Index           =   1
+         Index           =   2
          Left            =   4575
          TabIndex        =   47
+         Top             =   1320
+         Visible         =   0   'False
+         Width           =   600
+      End
+      Begin VB.TextBox TxtCodInt 
+         Height          =   330
+         Index           =   1
+         Left            =   4575
+         TabIndex        =   46
          Top             =   990
          Visible         =   0   'False
          Width           =   600
@@ -594,7 +594,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   330
          Index           =   0
          Left            =   4575
-         TabIndex        =   46
+         TabIndex        =   45
          Top             =   660
          Visible         =   0   'False
          Width           =   600
@@ -604,7 +604,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   8
          Left            =   345
-         TabIndex        =   12
+         TabIndex        =   11
          Top             =   3315
          Width           =   1410
       End
@@ -614,18 +614,18 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   8
          Left            =   1770
-         TabIndex        =   44
-         Top             =   3315
-         Width           =   3435
-      End
-      Begin VB.TextBox TxtSucursal 
-         BackColor       =   &H80000018&
-         Enabled         =   0   'False
-         Height          =   315
-         Index           =   8
-         Left            =   5220
          TabIndex        =   43
          Top             =   3315
+         Width           =   3435
+      End
+      Begin VB.TextBox TxtSucursal 
+         BackColor       =   &H80000018&
+         Enabled         =   0   'False
+         Height          =   315
+         Index           =   8
+         Left            =   5220
+         TabIndex        =   42
+         Top             =   3315
          Width           =   1875
       End
       Begin VB.TextBox TxtNumeroCh 
@@ -633,7 +633,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   9
          Left            =   345
-         TabIndex        =   13
+         TabIndex        =   12
          Top             =   3645
          Width           =   1410
       End
@@ -643,25 +643,25 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   9
          Left            =   1770
-         TabIndex        =   42
-         Top             =   3645
-         Width           =   3435
-      End
-      Begin VB.TextBox TxtSucursal 
-         BackColor       =   &H80000018&
-         Enabled         =   0   'False
-         Height          =   315
-         Index           =   9
-         Left            =   5220
          TabIndex        =   41
          Top             =   3645
+         Width           =   3435
+      End
+      Begin VB.TextBox TxtSucursal 
+         BackColor       =   &H80000018&
+         Enabled         =   0   'False
+         Height          =   315
+         Index           =   9
+         Left            =   5220
+         TabIndex        =   40
+         Top             =   3645
          Width           =   1875
       End
       Begin VB.TextBox TxtNumeroCh 
          Height          =   315
          Index           =   0
          Left            =   345
-         TabIndex        =   4
+         TabIndex        =   3
          Top             =   660
          Width           =   1410
       End
@@ -671,38 +671,38 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   0
          Left            =   1770
-         TabIndex        =   36
-         Top             =   660
-         Width           =   3435
-      End
-      Begin VB.TextBox TxtSucursal 
-         BackColor       =   &H80000018&
-         Enabled         =   0   'False
-         Height          =   315
-         Index           =   0
-         Left            =   5220
          TabIndex        =   35
          Top             =   660
-         Width           =   1875
+         Width           =   3435
       End
       Begin VB.TextBox TxtSucursal 
          BackColor       =   &H80000018&
          Enabled         =   0   'False
          Height          =   315
-         Index           =   1
+         Index           =   0
          Left            =   5220
          TabIndex        =   34
-         Top             =   990
+         Top             =   660
          Width           =   1875
       End
-      Begin VB.TextBox TxtBanco 
+      Begin VB.TextBox TxtSucursal 
          BackColor       =   &H80000018&
          Enabled         =   0   'False
          Height          =   315
          Index           =   1
-         Left            =   1770
+         Left            =   5220
          TabIndex        =   33
          Top             =   990
+         Width           =   1875
+      End
+      Begin VB.TextBox TxtBanco 
+         BackColor       =   &H80000018&
+         Enabled         =   0   'False
+         Height          =   315
+         Index           =   1
+         Left            =   1770
+         TabIndex        =   32
+         Top             =   990
          Width           =   3435
       End
       Begin VB.TextBox TxtNumeroCh 
@@ -710,7 +710,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   1
          Left            =   345
-         TabIndex        =   5
+         TabIndex        =   4
          Top             =   990
          Width           =   1410
       End
@@ -720,18 +720,18 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   2
          Left            =   5220
-         TabIndex        =   32
-         Top             =   1320
-         Width           =   1875
-      End
-      Begin VB.TextBox TxtBanco 
-         BackColor       =   &H80000018&
-         Enabled         =   0   'False
-         Height          =   315
-         Index           =   2
-         Left            =   1770
          TabIndex        =   31
          Top             =   1320
+         Width           =   1875
+      End
+      Begin VB.TextBox TxtBanco 
+         BackColor       =   &H80000018&
+         Enabled         =   0   'False
+         Height          =   315
+         Index           =   2
+         Left            =   1770
+         TabIndex        =   30
+         Top             =   1320
          Width           =   3435
       End
       Begin VB.TextBox TxtNumeroCh 
@@ -739,7 +739,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   2
          Left            =   345
-         TabIndex        =   6
+         TabIndex        =   5
          Top             =   1320
          Width           =   1410
       End
@@ -749,7 +749,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   3
          Left            =   5220
-         TabIndex        =   30
+         TabIndex        =   29
          Top             =   1650
          Width           =   1875
       End
@@ -759,7 +759,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   3
          Left            =   1770
-         TabIndex        =   29
+         TabIndex        =   28
          Top             =   1650
          Width           =   3435
       End
@@ -768,7 +768,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   3
          Left            =   345
-         TabIndex        =   7
+         TabIndex        =   6
          Top             =   1650
          Width           =   1410
       End
@@ -778,7 +778,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   4
          Left            =   5220
-         TabIndex        =   28
+         TabIndex        =   27
          Top             =   1980
          Width           =   1875
       End
@@ -788,7 +788,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   4
          Left            =   1770
-         TabIndex        =   27
+         TabIndex        =   26
          Top             =   1980
          Width           =   3435
       End
@@ -797,7 +797,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   4
          Left            =   345
-         TabIndex        =   8
+         TabIndex        =   7
          Top             =   1980
          Width           =   1410
       End
@@ -807,7 +807,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   5
          Left            =   5220
-         TabIndex        =   26
+         TabIndex        =   25
          Top             =   2310
          Width           =   1875
       End
@@ -817,7 +817,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   5
          Left            =   1770
-         TabIndex        =   25
+         TabIndex        =   24
          Top             =   2295
          Width           =   3435
       End
@@ -826,7 +826,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   5
          Left            =   345
-         TabIndex        =   9
+         TabIndex        =   8
          Top             =   2310
          Width           =   1410
       End
@@ -835,7 +835,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   6
          Left            =   345
-         TabIndex        =   10
+         TabIndex        =   9
          Top             =   2640
          Width           =   1410
       End
@@ -845,7 +845,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   6
          Left            =   1770
-         TabIndex        =   24
+         TabIndex        =   23
          Top             =   2640
          Width           =   3435
       End
@@ -855,7 +855,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   6
          Left            =   5220
-         TabIndex        =   23
+         TabIndex        =   22
          Top             =   2640
          Width           =   1875
       End
@@ -864,7 +864,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   7
          Left            =   345
-         TabIndex        =   11
+         TabIndex        =   10
          Top             =   2970
          Width           =   1410
       End
@@ -874,7 +874,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   7
          Left            =   1770
-         TabIndex        =   22
+         TabIndex        =   21
          Top             =   2970
          Width           =   3435
       End
@@ -884,7 +884,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   7
          Left            =   5220
-         TabIndex        =   21
+         TabIndex        =   20
          Top             =   2970
          Width           =   1875
       End
@@ -906,7 +906,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   14
          Left            =   7110
-         TabIndex        =   83
+         TabIndex        =   82
          Top             =   315
          Width           =   1275
       End
@@ -926,7 +926,7 @@ Begin VB.Form FrmBoletaDeposito
          ForeColor       =   &H00800000&
          Height          =   435
          Left            =   1770
-         TabIndex        =   59
+         TabIndex        =   58
          Top             =   4350
          Visible         =   0   'False
          Width           =   1785
@@ -955,7 +955,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   2
          Left            =   5220
-         TabIndex        =   57
+         TabIndex        =   56
          Top             =   4725
          Width           =   1875
       End
@@ -967,7 +967,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   0
          Left            =   5220
-         TabIndex        =   56
+         TabIndex        =   55
          Top             =   4320
          Width           =   1875
       End
@@ -989,7 +989,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   16
          Left            =   345
-         TabIndex        =   40
+         TabIndex        =   39
          Top             =   315
          Width           =   1410
       End
@@ -1011,7 +1011,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   17
          Left            =   1770
-         TabIndex        =   39
+         TabIndex        =   38
          Top             =   315
          Width           =   3435
       End
@@ -1033,7 +1033,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   18
          Left            =   5220
-         TabIndex        =   38
+         TabIndex        =   37
          Top             =   315
          Width           =   1875
       End
@@ -1045,7 +1045,7 @@ Begin VB.Form FrmBoletaDeposito
          Height          =   315
          Index           =   22
          Left            =   5220
-         TabIndex        =   37
+         TabIndex        =   36
          Top             =   3990
          Width           =   1875
       End
@@ -1064,7 +1064,7 @@ Begin VB.Form FrmBoletaDeposito
       EndProperty
       Height          =   195
       Left            =   240
-      TabIndex        =   89
+      TabIndex        =   88
       Top             =   6195
       Width           =   570
    End
@@ -1074,7 +1074,7 @@ Begin VB.Form FrmBoletaDeposito
       Caption         =   "-------"
       Height          =   195
       Left            =   4335
-      TabIndex        =   87
+      TabIndex        =   86
       Top             =   7275
       Width           =   435
    End
@@ -1084,7 +1084,7 @@ Begin VB.Form FrmBoletaDeposito
       Height          =   195
       Index           =   7
       Left            =   5220
-      TabIndex        =   86
+      TabIndex        =   85
       Top             =   540
       Width           =   555
    End
@@ -1094,7 +1094,7 @@ Begin VB.Form FrmBoletaDeposito
       Height          =   195
       Index           =   1
       Left            =   3105
-      TabIndex        =   19
+      TabIndex        =   18
       Top             =   165
       Width           =   495
    End
@@ -1104,7 +1104,7 @@ Begin VB.Form FrmBoletaDeposito
       Height          =   195
       Index           =   5
       Left            =   1005
-      TabIndex        =   18
+      TabIndex        =   17
       Top             =   585
       Width           =   495
    End
@@ -1114,7 +1114,7 @@ Begin VB.Form FrmBoletaDeposito
       Height          =   195
       Index           =   6
       Left            =   6615
-      TabIndex        =   17
+      TabIndex        =   16
       Top             =   555
       Width           =   585
    End
@@ -1124,7 +1124,7 @@ Begin VB.Form FrmBoletaDeposito
       Height          =   195
       Index           =   4
       Left            =   150
-      TabIndex        =   16
+      TabIndex        =   15
       Top             =   165
       Width           =   1395
    End
@@ -1430,8 +1430,10 @@ Private Sub CboBancoBoleta_LostFocus()
                 'Boleta Anulada
                 If Trim(snp!EBO_CODIGO) = 2 Then Me.LblAnulada.Visible = True
                 
-                TxtBolFecha.Text = snp!BOL_FECHA
-                TxtBolFecha.Enabled = False
+                'TxtBolFecha.Text = snp!BOL_FECHA
+                'TxtBolFecha.Enabled = False
+                '''revisar fecha
+                Fecha.Value = BOL_FECHA
                 
                 CboCuentas_GotFocus
                 Call BuscaProx(snp!CTA_NROCTA, CboCuentas)
@@ -1474,7 +1476,7 @@ Private Sub CboBancoBoleta_LostFocus()
             Me.TxtBoleta.Enabled = True
             Me.CboBancoBoleta.Enabled = True
             Me.CboCuentas.Enabled = True
-            Me.TxtBolFecha.Enabled = True
+            Me.Fecha.Enabled = True
             
             'If FormLlamado = "CtaCte" Then
             '    If UCase(Trim(Format(Date - 1, "ddd"))) <> "DOM" Then
@@ -1503,18 +1505,18 @@ Private Sub CboCuentas_GotFocus()
 End Sub
 
 Private Sub CargoCtaBancaria(Banco As String)
-    Set rec = New ADODB.Recordset
+    Set Rec = New ADODB.Recordset
     sql = "SELECT CTA_NROCTA FROM CTA_BANCARIA"
     sql = sql & " WHERE BAN_CODINT=" & XN(Banco)
     sql = sql & " AND CTA_FECCIE IS NULL"
-    rec.Open sql, DBConn, adOpenStatic, adLockOptimistic
-    If rec.EOF = False Then
-     Do While rec.EOF = False
-         CboCuentas.AddItem Trim(rec!CTA_NROCTA)
-         rec.MoveNext
+    Rec.Open sql, DBConn, adOpenStatic, adLockOptimistic
+    If Rec.EOF = False Then
+     Do While Rec.EOF = False
+         CboCuentas.AddItem Trim(Rec!CTA_NROCTA)
+         Rec.MoveNext
      Loop
     End If
-    rec.Close
+    Rec.Close
 End Sub
 
 Private Sub CboCuentas_LostFocus()
@@ -1620,25 +1622,25 @@ Private Sub CmdAnular_Click()
         If MsgBox("Seguro desea ANULAR la Boleta de Depósito ?", 36, TIT_MSGBOX) = vbYes Then
             
             'ACTUALIZAR LOS CHEQUES
-             For i = 0 To 9
-              If TxtValorNominalCh(i).Text <> "" Then
+             For I = 0 To 9
+              If TxtValorNominalCh(I).Text <> "" Then
                 'Inserto en Cheque
                 sql = "UPDATE CHEQUE SET BOL_NUMERO = NULL "
                 sql = sql & ",BOL_BAN_CODINT = NULL "
                 sql = sql & ",CTA_NROCTA = NULL "
-                sql = sql & " WHERE CHE_NUMERO = " & XS(Me.TxtNumeroCh(i).Text)
-                sql = sql & " AND BAN_CODINT = " & XN(Me.TxtCodInt(i).Text)
+                sql = sql & " WHERE CHE_NUMERO = " & XS(Me.TxtNumeroCh(I).Text)
+                sql = sql & " AND BAN_CODINT = " & XN(Me.TxtCodInt(I).Text)
                 DBConn.Execute sql
                 
                 'Cambio en Cheque_Estados 1 ES CHEQUES EN CARTERA
                 sql = "INSERT INTO CHEQUE_ESTADOS "
                 sql = sql & "(CHE_NUMERO,BAN_CODINT,ECH_CODIGO,CES_FECHA,CES_DESCRI)"
-                sql = sql & " VALUES (" & XS(Me.TxtNumeroCh(i).Text) & ","
-                sql = sql & XN(Me.TxtCodInt(i).Text)
+                sql = sql & " VALUES (" & XS(Me.TxtNumeroCh(I).Text) & ","
+                sql = sql & XN(Me.TxtCodInt(I).Text)
                 sql = sql & ", 1," & XDQ(Date) & ",'CHEQUE EN CARTERA')"
                 DBConn.Execute sql
               End If
-            Next i
+            Next I
             
             'ACTUALIZA LA BOLETA DE DEPOSITO
             sql = "UPDATE BOL_DEPOSITO SET EBO_CODIGO =  2, "
@@ -1653,7 +1655,7 @@ Private Sub CmdAnular_Click()
 '            sql = sql & " AND CTA_NROCTA = " & XS(CboCuentas.List(CboCuentas.ListIndex))
 '            DBConn.Execute sql
             
-            cmdNuevo_Click
+            CmdNuevo_Click
         End If
     End If
 End Sub
@@ -1675,9 +1677,9 @@ Private Sub cmdEliminar_Click()
             sql = sql & " BOL_NUMERO = " & XS(Me.TxtBoleta.Text)
             sql = sql & " AND BAN_CODINT=" & XN(Me.TxtBanCodInt.Text)
             sql = sql & " AND CTA_NROCTA=" & XS(CboCuentas.List(CboCuentas.ListIndex))
-            rec.Open sql, DBConn, adOpenStatic, adLockOptimistic
-            If rec.EOF = False Then
-                If rec!EBO_CODIGO <> 2 Then
+            Rec.Open sql, DBConn, adOpenStatic, adLockOptimistic
+            If Rec.EOF = False Then
+                If Rec!EBO_CODIGO <> 2 Then
 '                    'ACTUALIZO EL SALDO DE LA CUENTA BANCARIA
 '                    sql = "UPDATE CTA_BANCARIA"
 '                    sql = sql & " SET CTA_SALACT = CTA_SALACT - " & XN(CDbl(SumandoTODO.Text))
@@ -1686,28 +1688,28 @@ Private Sub cmdEliminar_Click()
 '                    DBConn.Execute sql
                 End If
             End If
-            rec.Close
+            Rec.Close
             
             'ACTUALIZAR LOS CHEQUES
-             For i = 0 To 9
-              If TxtValorNominalCh(i).Text <> "" Then
+             For I = 0 To 9
+              If TxtValorNominalCh(I).Text <> "" Then
                 'Inserto en Cheque
                 sql = "UPDATE CHEQUE SET BOL_NUMERO = NULL "
                 sql = sql & ",BOL_BAN_CODINT = NULL "
                 sql = sql & ",CTA_NROCTA = NULL "
-                sql = sql & " WHERE CHE_NUMERO = " & XS(Me.TxtNumeroCh(i).Text)
-                sql = sql & " AND BAN_CODINT = " & XN(Me.TxtCodInt(i).Text)
+                sql = sql & " WHERE CHE_NUMERO = " & XS(Me.TxtNumeroCh(I).Text)
+                sql = sql & " AND BAN_CODINT = " & XN(Me.TxtCodInt(I).Text)
                 DBConn.Execute sql
                 
                 'Cambio en Cheque_Estados 1 ES CHEQUES EN CARTERA
                 sql = "INSERT INTO CHEQUE_ESTADOS "
                 sql = sql & "(CHE_NUMERO,BAN_CODINT,ECH_CODIGO,CES_FECHA,CES_DESCRI) "
-                sql = sql & " VALUES (" & XS(Me.TxtNumeroCh(i).Text)
-                sql = sql & "," & XN(Me.TxtCodInt(i).Text)
+                sql = sql & " VALUES (" & XS(Me.TxtNumeroCh(I).Text)
+                sql = sql & "," & XN(Me.TxtCodInt(I).Text)
                 sql = sql & ", 1," & XDQ(Date) & ",'CHEQUE EN CARTERA')"
                 DBConn.Execute sql
               End If
-            Next i
+            Next I
             
             'ACTUALIZA LA BOLETA DE DEPOSITO
             sql = "DELETE FROM BOL_DEPOSITO"
@@ -1716,12 +1718,12 @@ Private Sub cmdEliminar_Click()
             
             DBConn.CommitTrans
             lblEstado.Caption = ""
-            cmdNuevo_Click
+            CmdNuevo_Click
         End If
     End If
     Exit Sub
 CLAVOSE:
-    If rec.State = 1 Then rec.Close
+    If Rec.State = 1 Then Rec.Close
     DBConn.RollbackTrans
     lblEstado.Caption = ""
     MsgBox Err.Description, vbCritical, TIT_MSGBOX
@@ -1763,26 +1765,26 @@ Private Sub CmdGrabar_Click()
              DBConn.Execute sql
              
              
-            For i = 0 To 9
-              If TxtValorNominalCh(i).Text <> "" Then
+            For I = 0 To 9
+              If TxtValorNominalCh(I).Text <> "" Then
                 'Inserto en Cheque
                 sql = "UPDATE CHEQUE SET BOL_NUMERO = " & XN(Me.TxtBoleta.Text)
                 sql = sql & ",BOL_BAN_CODINT = " & XN(Me.TxtBanCodInt.Text)
                 sql = sql & ",CTA_NROCTA = " & XS(Me.CboCuentas.List(Me.CboCuentas.ListIndex))
-                sql = sql & " WHERE CHE_NUMERO = " & XS(Me.TxtNumeroCh(i).Text)
-                sql = sql & " AND BAN_CODINT = " & XN(Me.TxtCodInt(i).Text)
+                sql = sql & " WHERE CHE_NUMERO = " & XS(Me.TxtNumeroCh(I).Text)
+                sql = sql & " AND BAN_CODINT = " & XN(Me.TxtCodInt(I).Text)
                 DBConn.Execute sql
                 
                 'Cambio en Cheque_Estados 2 ES CHEQUES DEPOSITADO
                 sql = "INSERT INTO CHEQUE_ESTADOS"
                 sql = sql & "(ECH_CODIGO,BAN_CODINT,CHE_NUMERO,CES_FECHA,CES_DESCRI) "
-                sql = sql & " VALUES ( 2," & XN(Me.TxtCodInt(i).Text) & ","
-                sql = sql & XS(Me.TxtNumeroCh(i).Text) & ","
+                sql = sql & " VALUES ( 2," & XN(Me.TxtCodInt(I).Text) & ","
+                sql = sql & XS(Me.TxtNumeroCh(I).Text) & ","
                 sql = sql & XDQ(Date) & ","
                 sql = sql & "'CHEQUE DEPOSITADO')"
                 DBConn.Execute sql
               End If
-            Next i
+            Next I
 '            'ACTUALIZO EL SALDO DE LA CUENTA BANCARIA
 '            sql = "UPDATE CTA_BANCARIA"
 '            sql = sql & " SET CTA_SALACT = CTA_SALACT + " & XN(CDbl(SumandoTODO.Text))
@@ -1793,7 +1795,7 @@ Private Sub CmdGrabar_Click()
             DBConn.CommitTrans
             lblEstado.Caption = ""
         End If
-        cmdNuevo_Click
+        CmdNuevo_Click
         MousePointer = 0
     End If
     Exit Sub
@@ -1836,7 +1838,7 @@ Private Sub CmdImprimir_MouseMove(Button As Integer, Shift As Integer, X As Sing
     LblDetalle.Caption = "Imprime la Boleta de Depósito."
 End Sub
 
-Private Sub cmdNuevo_Click()
+Private Sub CmdNuevo_Click()
   Me.TxtBoleta.Enabled = True
   Me.CboBancoBoleta.Enabled = True
   Me.CboCuentas.Enabled = True
@@ -1925,7 +1927,7 @@ Private Sub TxtBoleta_LostFocus()
                    CboBancoBoleta_LostFocus
                    Call BuscaProx(snp!CTA_NROCTA, CboCuentas)
                    
-                   TxtBolFecha.Text = snp!BOL_FECHA
+                   TxtBolFecha.Value = snp!BOL_FECHA
                    'TxtBolFecha.Enabled = True
                 
                    TxtEfvo.Text = Format(ChkNull(snp!BOL_EFECVO), "0.00")
@@ -1965,7 +1967,7 @@ Private Sub TxtBoleta_LostFocus()
                 Me.TxtBoleta.Enabled = True
                 Me.CboBancoBoleta.Enabled = True
                 Me.CboCuentas.Enabled = True
-                Me.TxtBolFecha.Enabled = True
+                Me.Fecha.Enabled = True
                 
                 'If FormLlamado = "CtaCte" Then
                 '    If UCase(Trim(Format(Date - 1, "ddd"))) <> "DOM" Then
@@ -1980,7 +1982,7 @@ Private Sub TxtBoleta_LostFocus()
                 Me.TxtEfvo = ""
                 LblAnulada.Visible = False
                 cmdGrabar.Enabled = True
-                TxtBolFecha.SetFocus
+                Fecha.SetFocus
          End If
          snp.Close
       End If
@@ -2038,16 +2040,16 @@ Private Sub TxtNumeroCh_LostFocus(Index As Integer)
       INDICE = Index
       
       If Trim(Index) > 0 Then
-        For i = 0 To 9
-           If Trim(Index) <> Trim(i) Then
-               If Trim(TxtNumeroCh(i).Text) = Trim(TxtNumeroCh(Index).Text) Then
+        For I = 0 To 9
+           If Trim(Index) <> Trim(I) Then
+               If Trim(TxtNumeroCh(I).Text) = Trim(TxtNumeroCh(Index).Text) Then
                   MsgBox "El Nro. de Cheque está repetido. Verifique!", 16, TIT_MSGBOX
                   TxtNumeroCh(Index).Text = ""
                   TxtNumeroCh(Index).SetFocus
                   Exit Sub
                End If
            End If
-        Next i
+        Next I
       End If
       
       Index = INDICE
@@ -2103,7 +2105,7 @@ Private Sub Form_Load()
     Nuevo_NRO = False
     
     Screen.MousePointer = 1
-    Set rec = New ADODB.Recordset
+    Set Rec = New ADODB.Recordset
     
     
     CboBancoBoleta.Clear
@@ -2144,15 +2146,15 @@ Private Sub CargoBanco()
     sql = "SELECT DISTINCT B.BAN_CODINT, B.BAN_DESCRI"
     sql = sql & " FROM BANCO B, CTA_BANCARIA CB"
     sql = sql & " WHERE B.BAN_CODINT=CB.BAN_CODINT"
-    rec.Open sql, DBConn, adOpenStatic, adLockOptimistic
-    If rec.EOF = False Then
-        Do While rec.EOF = False
-            CboBancoBoleta.AddItem Trim(rec!BAN_DESCRI)
-            CboBancoBoleta.ItemData(CboBancoBoleta.NewIndex) = Trim(rec!BAN_CODINT)
-            rec.MoveNext
+    Rec.Open sql, DBConn, adOpenStatic, adLockOptimistic
+    If Rec.EOF = False Then
+        Do While Rec.EOF = False
+            CboBancoBoleta.AddItem Trim(Rec!BAN_DESCRI)
+            CboBancoBoleta.ItemData(CboBancoBoleta.NewIndex) = Trim(Rec!BAN_CODINT)
+            Rec.MoveNext
         Loop
         CboBancoBoleta.ListIndex = 0
     End If
-    rec.Close
+    Rec.Close
 End Sub
 
