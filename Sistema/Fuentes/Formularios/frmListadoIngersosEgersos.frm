@@ -185,7 +185,7 @@ Begin VB.Form frmListadoIngersosEgersos
          _ExtentX        =   2143
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   20971521
+         Format          =   111017985
          CurrentDate     =   42925
       End
       Begin MSComCtl2.DTPicker FechaHasta 
@@ -197,7 +197,7 @@ Begin VB.Form frmListadoIngersosEgersos
          _ExtentX        =   2143
          _ExtentY        =   556
          _Version        =   393216
-         Format          =   20971521
+         Format          =   111017985
          CurrentDate     =   42925
       End
       Begin VB.Label Label1 
@@ -380,8 +380,8 @@ End Sub
 
 Private Sub CmdNuevo_Click()
     CboGastos.ListIndex = 0
-    FechaDesde.Value = ""
-    FechaHasta.Value = ""
+    FechaDesde.Value = Date
+    FechaHasta.Value = Date
     cboTipo.ListIndex = 0
     cboTipo.SetFocus
 End Sub
